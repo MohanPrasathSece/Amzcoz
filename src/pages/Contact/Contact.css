@@ -395,12 +395,25 @@
     padding: 6rem 0 4rem;
   }
 
+  .contact-header-content h1 {
+    font-size: 2.25rem;
+  }
+
   .contact-subtitle {
     font-size: 1.1rem;
   }
 
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
   .contact-intro h2 {
     font-size: 1.75rem;
+  }
+
+  .contact-intro p {
+    font-size: 1rem;
   }
 
   .form-container {
@@ -411,22 +424,189 @@
     font-size: 1.5rem;
   }
 
+  .form-header p {
+    font-size: 0.95rem;
+  }
+
   .regions-grid {
     grid-template-columns: 1fr;
+  }
+
+  .region-badge {
+    padding: 0.85rem;
+  }
+
+  .region-name {
+    font-size: 0.95rem;
+  }
+
+  .contact-benefits {
+    padding: 1.75rem;
+  }
+
+  .contact-benefits h3 {
+    font-size: 1.2rem;
+  }
+
+  .benefit-item {
+    padding: 1rem;
+  }
+
+  .benefit-content h4 {
+    font-size: 1rem;
+  }
+
+  .benefit-content p {
+    font-size: 0.9rem;
   }
 
   .additional-text h2 {
     font-size: 2rem;
   }
+
+  .additional-features {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .contact-header {
+    padding: 5rem 0 3rem;
+  }
+
+  .contact-header-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+
+  .contact-intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-intro p {
+    font-size: 0.95rem;
+  }
+
   .contact-info-card {
     flex-direction: column;
     text-align: center;
+    padding: 1.25rem;
   }
 
   .info-icon {
     margin: 0 auto;
+    width: 45px;
+    height: 45px;
+    font-size: 1.35rem;
+  }
+
+  .info-content h3 {
+    font-size: 1rem;
+  }
+
+  .info-link,
+  .info-text {
+    font-size: 0.9rem;
+  }
+
+  .service-regions {
+    padding: 1.5rem;
+  }
+
+  .service-regions h3 {
+    font-size: 1.15rem;
+  }
+
+  .region-badge {
+    padding: 0.75rem;
+  }
+
+  .region-flag {
+    font-size: 1.35rem;
+  }
+
+  .region-name {
+    font-size: 0.9rem;
+  }
+
+  .contact-benefits {
+    padding: 1.5rem;
+  }
+
+  .contact-benefits h3 {
+    font-size: 1.15rem;
+  }
+
+  .benefit-item {
+    padding: 1rem;
+  }
+
+  .benefit-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .benefit-content h4 {
+    font-size: 0.95rem;
+  }
+
+  .benefit-content p {
+    font-size: 0.85rem;
+  }
+
+  .form-container {
+    padding: 1.75rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .form-header p {
+    font-size: 0.9rem;
+  }
+
+  .additional-text h2 {
+    font-size: 1.75rem;
+  }
+
+  .additional-feature {
+    padding: 1.5rem;
+  }
+
+  .feature-number {
+    width: 52px;
+    height: 52px;
+    font-size: 1.35rem;
+  }
+
+  .feature-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .feature-content p {
+    font-size: 0.9rem;
+  }
+
+  .faq-item {
+    padding: 1.5rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.05rem;
+  }
+
+  .faq-item p {
+    font-size: 0.9rem;
   }
 }

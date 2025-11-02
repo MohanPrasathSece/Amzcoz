@@ -24,6 +24,7 @@ const Header = () => {
 
   useEffect(() => {
     setIsMobileMenuOpen(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [location])
 
   const scrollToTop = () => {

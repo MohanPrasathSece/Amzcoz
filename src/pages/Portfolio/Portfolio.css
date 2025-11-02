@@ -514,10 +514,174 @@
     font-size: 2rem;
   }
 
+  .section-header p {
+    font-size: 1rem;
+  }
+
   .report-card,
   .brand-card,
   .result-card,
   .capability-card {
     padding: 2rem;
+  }
+
+  .brand-logo-wrapper {
+    height: 120px;
+  }
+
+  .result-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .result-meta {
+    align-items: flex-start;
+  }
+
+  .result-value {
+    font-size: 2rem;
+  }
+
+  .chart-bar {
+    grid-template-columns: 90px 1fr 50px;
+    gap: 0.75rem;
+  }
+
+  .chart-bar__label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-hero {
+    padding: 5rem 0 2.5rem;
+  }
+
+  .portfolio-hero-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .portfolio-hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .section-header p {
+    font-size: 0.9rem;
+  }
+
+  .brand-card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .brand-logo-wrapper {
+    height: 100px;
+  }
+
+  .brand-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .brand-category {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .result-card {
+    padding: 1.75rem;
+  }
+
+  .result-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.75rem;
+  }
+
+  .result-value {
+    font-size: 1.75rem;
+  }
+
+  .result-timeframe {
+    font-size: 0.8rem;
+  }
+
+  .result-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .result-card p {
+    font-size: 0.9rem;
+  }
+
+  .chart-bar {
+    grid-template-columns: 80px 1fr 45px;
+    gap: 0.5rem;
+  }
+
+  .chart-bar__label {
+    font-size: 0.7rem;
+  }
+
+  .chart-bar__value {
+    font-size: 0.8rem;
+  }
+
+  .report-card {
+    padding: 1.75rem;
+  }
+
+  .report-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .report-date {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .report-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .report-description {
+    font-size: 0.9rem;
+  }
+
+  .metric-badge {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .report-download {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .capability-card {
+    padding: 1.75rem;
+  }
+
+  .capability-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.75rem;
+  }
+
+  .capability-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .capability-card p {
+    font-size: 0.9rem;
+  }
+
+  .capability-card li {
+    font-size: 0.85rem;
   }
 }

@@ -418,6 +418,18 @@
 }
 
 @media (max-width: 480px) {
+  .services-header {
+    padding: 3rem 0 2rem;
+  }
+
+  .services-header-content h1 {
+    font-size: 2rem;
+  }
+
+  .services-subtitle {
+    font-size: 0.95rem;
+  }
+
   .services-header-stats {
     flex-direction: column;
     gap: 0.75rem;
@@ -425,5 +437,105 @@
 
   .header-stat {
     width: 100%;
+    padding: 1rem;
+  }
+
+  .header-stat svg {
+    font-size: 2rem;
+  }
+
+  .header-stat .stat-value {
+    font-size: 1.75rem;
+  }
+
+  .header-stat .stat-label {
+    font-size: 0.85rem;
+  }
+
+  .service-detail-card {
+    margin-bottom: 1.25rem;
+  }
+
+  .service-detail-header {
+    padding: 1rem;
+  }
+
+  .service-detail-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .service-detail-title h2 {
+    font-size: 1.15rem;
+  }
+
+  .service-detail-title p {
+    font-size: 0.9rem;
+  }
+
+  .service-detail-content {
+    padding: 1rem;
+  }
+
+  .service-detail-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .feature-item {
+    padding: 0.5rem;
+  }
+
+  .feature-item span {
+    font-size: 0.85rem;
+  }
+
+  .process-step {
+    padding: 0.75rem;
+  }
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .step-text {
+    font-size: 0.85rem;
+  }
+
+  .service-detail-footer {
+    padding: 0.75rem 1rem;
+  }
+
+  .benefit-card {
+    padding: 1.25rem;
+  }
+
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-card h3 {
+    font-size: 1rem;
+  }
+
+  .benefit-card p {
+    font-size: 0.85rem;
+  }
+
+  .cta-box {
+    padding: 1.25rem;
+  }
+
+  .cta-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-box p {
+    font-size: 0.9rem;
   }
 }

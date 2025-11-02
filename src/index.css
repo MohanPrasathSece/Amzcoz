@@ -121,7 +121,62 @@ html {
 
 @media (max-width: 768px) {
   .container {
+    padding: 0 1.25rem;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
     padding: 0 1rem;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
   }
 }
 

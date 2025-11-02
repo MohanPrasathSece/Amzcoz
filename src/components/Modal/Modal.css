@@ -103,6 +103,10 @@
 }
 
 @media (max-width: 768px) {
+  .modal-wrapper {
+    padding: 0.75rem;
+  }
+
   .modal {
     max-height: 95vh;
     border-radius: 12px;
@@ -116,6 +120,10 @@
     font-size: 1.25rem;
   }
 
+  .modal-close {
+    font-size: 1.35rem;
+  }
+
   .modal-content {
     padding: 1.5rem;
   }
@@ -124,5 +132,32 @@
   .modal-medium,
   .modal-large {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-wrapper {
+    padding: 0.5rem;
+  }
+
+  .modal {
+    border-radius: 10px;
+  }
+
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .modal-title {
+    font-size: 1.15rem;
+  }
+
+  .modal-close {
+    font-size: 1.25rem;
+    padding: 0.4rem;
+  }
+
+  .modal-content {
+    padding: 1.25rem;
   }
 }
