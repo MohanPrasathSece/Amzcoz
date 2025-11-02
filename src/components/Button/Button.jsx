@@ -32,7 +32,7 @@ const Button = ({
   const MotionA = motion.a
 
   const motionProps = {
-    whileHover: { scale: disabled ? 1 : 1.02 },
+    whileHover: { scale: 1 },
     whileTap: { scale: disabled ? 1 : 0.98 },
     transition: { type: 'spring', stiffness: 400, damping: 17 }
   }

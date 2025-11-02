@@ -1,0 +1,404 @@
+import React from 'react'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+import { FaBuilding, FaChartLine, FaDownload, FaMedal, FaShoppingBag, FaRocket } from 'react-icons/fa'
+import { LuSparkles } from 'react-icons/lu'
+import { PiChartLineUpDuotone } from 'react-icons/pi'
+import './Portfolio.css'
+
+const Portfolio = () => {
+  const [brandsRef, brandsInView] = useInView({ threshold: 0.2, triggerOnce: true })
+  const [analyticsRef, analyticsInView] = useInView({ threshold: 0.2, triggerOnce: true })
+  const [reportsRef, reportsInView] = useInView({ threshold: 0.2, triggerOnce: true })
+
+  const brands = [
+    { id: 1, name: 'SkyTech Electronics', logo: '/brands/brand1.png', category: 'Electronics' },
+    { id: 2, name: 'Urban Threads', logo: '/brands/brand2.png', category: 'Fashion & Apparel' },
+    { id: 3, name: 'Nest & Nook', logo: '/brands/brand3.png', category: 'Home & Kitchen' },
+    { id: 4, name: 'Glow Rituals', logo: '/brands/brand4.png', category: 'Beauty & Wellness' },
+    { id: 5, name: 'Stride Athletics', logo: '/brands/brand5.png', category: 'Sports & Outdoors' },
+    { id: 6, name: 'PetPlush Co.', logo: '/brands/brand6.png', category: 'Pet Supplies' },
+    { id: 7, name: 'Gourmet Grains', logo: '/brands/brand7.png', category: 'Grocery & Gourmet' },
+    { id: 8, name: 'KraftKids', logo: '/brands/brand8.png', category: 'Toys & Games' },
+  ]
+
+  const reports = [
+    {
+      id: 1,
+      title: 'Q4 2024 Performance Report',
+      description: 'Comprehensive analysis of marketplace performance across Amazon, Flipkart, and Myntra',
+      date: 'December 2024',
+      fileUrl: '/reports/q4-2024.pdf',
+      metrics: ['3x ROAS', '45% Growth', '500+ SKUs']
+    },
+    {
+      id: 2,
+      title: 'Brand Growth Case Study',
+      description: 'Success story: From startup to marketplace leader in 12 months',
+      date: 'November 2024',
+      fileUrl: '/reports/case-study-2024.pdf',
+      metrics: ['2.5x Revenue', '60% Market Share', '10+ Platforms']
+    },
+    {
+      id: 3,
+      title: 'Advertising ROI Analysis',
+      description: 'Deep dive into PPC and DSP campaign performance metrics',
+      date: 'October 2024',
+      fileUrl: '/reports/advertising-roi.pdf',
+      metrics: ['4x ROAS', '35% CTR Increase', '₹50L+ Ad Spend']
+    },
+  ]
+
+  const results = [
+    {
+      id: 1,
+      title: 'Marketplace Growth Velocity',
+      description: 'Compound monthly growth achieved across our top-performing brands in 2024',
+      value: '+38%',
+      timeframe: 'YoY Growth',
+      icon: <PiChartLineUpDuotone />,
+      sparkline: [12, 18, 25, 29, 33, 38],
+      breakdown: [
+        { label: 'Q1', value: 18, suffix: '%' },
+        { label: 'Q2', value: 26, suffix: '%' },
+        { label: 'Q3', value: 35, suffix: '%' },
+        { label: 'Q4', value: 38, suffix: '%' },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Advertising Efficiency Score',
+      description: 'Return on ad spend uplift driven by precision targeting and creative optimization',
+      value: '4.6x',
+      timeframe: 'Average ROAS',
+      icon: <FaRocket />,
+      sparkline: [2.1, 2.8, 3.6, 4.1, 4.6],
+      breakdown: [
+        { label: 'Amazon', value: 5.1, suffix: 'x', cap: 7 },
+        { label: 'Flipkart', value: 4.2, suffix: 'x', cap: 7 },
+        { label: 'Myntra', value: 3.8, suffix: 'x', cap: 7 },
+        { label: 'Ajio', value: 4.0, suffix: 'x', cap: 7 },
+      ],
+    },
+    {
+      id: 3,
+      title: 'Brand Experience Index',
+      description: 'Customer retention improvements powered by storefront optimization and service SLAs',
+      value: '92%',
+      timeframe: 'Repeat Purchase Rate',
+      icon: <LuSparkles />,
+      sparkline: [78, 82, 85, 88, 92],
+      breakdown: [
+        { label: 'CX Rating', value: 95, suffix: '%' },
+        { label: 'Fulfillment', value: 89, suffix: '%' },
+        { label: 'Delivery', value: 93, suffix: '%' },
+        { label: 'Loyalty', value: 91, suffix: '%' },
+      ],
+    },
+  ]
+
+  const getSparklineGeometry = (values = []) => {
+    const height = 40
+    if (!values.length) {
+      return { width: 120, points: '', areaPath: '' }
+    }
+
+    const step = 26
+    const coords = values.map((value, idx) => {
+      const clamped = Math.max(0, Math.min(value, 100))
+      const x = idx * step
+      const y = height - (clamped / 100) * (height - 8) - 2
+      return { x, y }
+    })
+
+    const lastX = coords[coords.length - 1].x
+    const width = Math.max(lastX, step)
+    const points = coords.map(({ x, y }) => `${x},${y}`).join(' ')
+    const areaPath = [
+      `M0,${height}`,
+      ...coords.map(({ x, y }) => `L${x},${y}`),
+      `L${lastX},${height}`,
+      'Z',
+    ].join(' ')
+
+    return { width, points, areaPath }
+  }
+
+  const capabilities = [
+    {
+      id: 1,
+      title: 'Full-Funnel Marketplace Strategy',
+      description: 'We audit category dynamics, competition, pricing elasticity, and customer behavior to build growth roadmaps for every marketplace we operate in.',
+      icon: <FaChartLine />,
+      points: ['Demand forecasting & target modeling', 'Pricing intelligence & dynamic repricing', 'Marketplace expansion playbooks']
+    },
+    {
+      id: 2,
+      title: 'Brand Accelerator Pods',
+      description: 'Dedicated pods comprised of performance marketers, creatives, content, marketplace ops, and analytics working in agile sprints to execute rapidly.',
+      icon: <FaShoppingBag />,
+      points: ['Dedicated pod structure across channels', 'Weekly growth sprints and tracking', 'Unified analytics dashboard']
+    },
+    {
+      id: 3,
+      title: 'Insights & Analytics Engine',
+      description: 'Automated intelligence layer blending marketplace data, inventory systems, and marketing channels to surface growth opportunities & risks.',
+      icon: <FaMedal />,
+      points: ['SKU-level P&L tracking', 'Anomaly detection & alerting', 'Custom executive reporting']
+    },
+  ]
+
+  return (
+    <div className="portfolio-page">
+      <section className="portfolio-hero">
+        <div className="container">
+          <motion.div
+            className="portfolio-hero-content"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1>Our Portfolio</h1>
+            <p>Trusted by leading brands across India to scale their e-commerce presence</p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="brands-section section-padding" ref={brandsRef}>
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={brandsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>Brands We Work With</h2>
+            <p>Partnering with innovative companies to drive marketplace success</p>
+          </motion.div>
+
+          <div className="brands-grid">
+            {brands.map((brand, index) => (
+              <motion.div
+                key={brand.id}
+                className="brand-card"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={brandsInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+              >
+                <div className="brand-logo-wrapper">
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    onError={(e) => {
+                      e.target.style.display = 'none'
+                      e.target.nextSibling.style.display = 'flex'
+                    }}
+                  />
+                  <div className="brand-placeholder" style={{ display: 'none' }}>
+                    <FaBuilding />
+                    <span>{brand.name}</span>
+                  </div>
+                </div>
+                <div className="brand-info">
+                  <h3>{brand.name}</h3>
+                  <span className="brand-category">{brand.category}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="results-section section-padding" ref={analyticsRef}>
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={analyticsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>Performance Snapshots</h2>
+            <p>Visualizing outcomes across marketplaces, advertising funnels, and customer experience</p>
+          </motion.div>
+
+          <div className="results-grid">
+            {results.map((result, index) => (
+              <motion.div
+                key={result.id}
+                className="result-card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={analyticsInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                {result.sparkline?.length ? (() => {
+                  const { width: sparklineWidth, points, areaPath } = getSparklineGeometry(result.sparkline)
+                  const strokeGradientId = `sparklineStroke-${result.id}`
+                  const fillGradientId = `sparklineFill-${result.id}`
+
+                  return (
+                    <div className="result-graph" aria-hidden>
+                      <svg
+                        className="result-sparkline"
+                        viewBox={`0 0 ${sparklineWidth} 40`}
+                        preserveAspectRatio="none"
+                      >
+                        <defs>
+                          <linearGradient id={strokeGradientId} x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.8" />
+                            <stop offset="100%" stopColor="#2563eb" stopOpacity="0.9" />
+                          </linearGradient>
+                          <linearGradient id={fillGradientId} x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stopColor="rgba(96, 165, 250, 0.35)" />
+                            <stop offset="100%" stopColor="rgba(37, 99, 235, 0)" />
+                          </linearGradient>
+                        </defs>
+                        <line
+                          className="result-sparkline__baseline"
+                          x1="0"
+                          y1="37"
+                          x2={sparklineWidth}
+                          y2="37"
+                        />
+                        {areaPath && (
+                          <path
+                            d={areaPath}
+                            fill={`url(#${fillGradientId})`}
+                          />
+                        )}
+                        {points && (
+                          <polyline
+                            points={points}
+                            fill="none"
+                            stroke={`url(#${strokeGradientId})`}
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        )}
+                      </svg>
+                    </div>
+                  )
+                })() : null}
+                <div className="result-card__header">
+                  <span className="result-icon">{result.icon}</span>
+                  <div className="result-meta">
+                    <span className="result-value">{result.value}</span>
+                    <span className="result-timeframe">{result.timeframe}</span>
+                  </div>
+                </div>
+                <h3>{result.title}</h3>
+                <p>{result.description}</p>
+                <div className="result-chart">
+                  {result.breakdown.map((item) => (
+                    <div key={item.label} className="chart-bar">
+                      <div className="chart-bar__label">{item.label}</div>
+                      <div className="chart-bar__track">
+                        <div
+                          className="chart-bar__fill"
+                          style={{ width: `${Math.min((item.value / (item.cap || 100)) * 100, 100)}%` }}
+                        />
+                      </div>
+                      <div className="chart-bar__value">{item.value}{item.suffix}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="reports-section section-padding" ref={reportsRef}>
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={reportsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>Business Reports & Case Studies</h2>
+            <p>Insights and results from our e-commerce campaigns</p>
+          </motion.div>
+
+          <div className="reports-grid">
+            {reports.map((report, index) => (
+              <motion.div
+                key={report.id}
+                className="report-card"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+                animate={reportsInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                whileHover={{ y: -10 }}
+              >
+                <div className="report-header">
+                  <div className="report-icon">
+                    <FaChartLine />
+                  </div>
+                  <span className="report-date">{report.date}</span>
+                </div>
+                <h3>{report.title}</h3>
+                <p className="report-description">{report.description}</p>
+                <div className="report-metrics">
+                  {report.metrics.map((metric, idx) => (
+                    <span key={idx} className="metric-badge">{metric}</span>
+                  ))}
+                </div>
+                <a 
+                  href={report.fileUrl} 
+                  className="report-download"
+                  download
+                  onClick={(e) => {
+                    e.preventDefault()
+                    alert('Report download will be available soon. Please contact us for access.')
+                  }}
+                >
+                  <FaDownload />
+                  Download Report
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Capabilities Section */}
+      <section className="capabilities-section section-padding">
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>How We Deliver Impact</h2>
+            <p>Dedicated pods, intelligence systems, and rigorous execution ensure every marketplace stays profitable and fast-growing.</p>
+          </motion.div>
+
+          <div className="capabilities-grid">
+            {capabilities.map((capability, index) => (
+              <motion.div
+                key={capability.id}
+                className="capability-card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+              >
+                <div className="capability-icon">{capability.icon}</div>
+                <h3>{capability.title}</h3>
+                <p>{capability.description}</p>
+                <ul>
+                  {capability.points.map((point, idx) => (
+                    <li key={idx}>{point}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default Portfolio

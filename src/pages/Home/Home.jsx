@@ -16,6 +16,7 @@ import {
 import Button from '../../components/Button/Button'
 import Modal from '../../components/Modal/Modal'
 import LeadForm from '../../components/LeadForm/LeadForm'
+import MoonGalaxy from '../../components/MoonGalaxy/MoonGalaxy'
 import './Home.css'
 
 const Home = () => {
@@ -35,15 +36,15 @@ const Home = () => {
   const services = [
     {
       icon: FaAmazon,
-      title: 'Amazon Account Management',
-      description: 'Complete day-to-day management, listing optimization, inventory control, and account health monitoring.',
-      features: ['Product Listing', 'Inventory Management', 'Account Health', 'Storefront Creation']
+      title: 'E-commerce Account Management',
+      description: 'Complete management across Amazon, Flipkart, Myntra, Ajio, Jio Mart & Meesho. Listing optimization, inventory control, and account health.',
+      features: ['Multi-Platform Management', 'Listing Optimization', 'Inventory Control', 'Account Health']
     },
     {
       icon: FaBullhorn,
-      title: 'Amazon Advertising',
-      description: 'Expert PPC & DSP campaign management with budget optimization and performance tracking.',
-      features: ['Campaign Creation', 'Budget Optimization', 'Performance Reports', 'Target Achievement']
+      title: 'E-commerce Advertising',
+      description: 'Expert PPC & DSP campaign management across all major platforms with budget optimization and performance tracking.',
+      features: ['Multi-Platform Ads', 'Budget Optimization', 'Performance Reports', 'ROAS Improvement']
     },
     {
       icon: FaStar,
@@ -71,135 +72,75 @@ const Home = () => {
       company: 'Electronics Brand',
       image: '👨‍💼',
       rating: 5,
-      text: 'AMZCOZ transformed our Amazon presence. Within 60 days, we saw 3x growth in organic sales and significantly improved our ad ROAS.'
+      text: 'AMZCOZ transformed our e-commerce presence across Amazon and Flipkart. Within 60 days, we saw 3x growth in organic sales and significantly improved our ad ROAS.'
     },
     {
       name: 'Priya Sharma',
       company: 'Fashion & Apparel',
       image: '👩‍💼',
       rating: 5,
-      text: 'Their expertise in Amazon advertising is unmatched. Our PPC campaigns are now profitable and our brand visibility has skyrocketed.'
+      text: 'Their expertise in e-commerce advertising across multiple platforms is unmatched. Our PPC campaigns are now profitable and our brand visibility has skyrocketed.'
     },
     {
       name: 'Michael Chen',
       company: 'Home & Kitchen',
       image: '👨‍💼',
       rating: 5,
-      text: 'Professional, transparent, and results-driven. AMZCOZ handles everything from listings to ads, allowing us to focus on product development.'
+      text: 'Professional, transparent, and results-driven. AMZCOZ handles everything from listings to ads across Amazon, Myntra, and Meesho, allowing us to focus on product development.'
     },
   ]
 
   return (
     <div className="home">
-      {/* Hero Section */}
-      <section className="hero" ref={heroRef}>
-        <div className="hero-background">
-          <div className="hero-shape hero-shape-1"></div>
-          <div className="hero-shape hero-shape-2"></div>
-          <div className="hero-shape hero-shape-3"></div>
-        </div>
-        
+      <section className="hero moon-hero" ref={heroRef}>
         <div className="container">
-          <div className="hero-content">
-            <motion.div
-              className="hero-text"
-              initial={{ opacity: 0, x: -50 }}
-              animate={heroInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
+          <div className="moon-hero-stack">
+            <motion.h1
+              className="brand-backdrop"
+              aria-hidden
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.15 }}
             >
-              <motion.h1
-                initial={{ opacity: 0, x: -30 }}
-                animate={heroInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Scale Your Amazon Business with{' '}
-                <span className="text-gradient">Expert Growth Strategies</span>
-              </motion.h1>
-              
-              <motion.p
-                className="hero-description"
-                initial={{ opacity: 0, x: -30 }}
-                animate={heroInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                Full-service Amazon account management, PPC advertising, and brand optimization. 
-                Helping businesses achieve 3x ROAS uplift and sustainable growth.
-              </motion.p>
-
-              <motion.div
-                className="hero-actions"
-                initial={{ opacity: 0, x: -30 }}
-                animate={heroInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                <Button 
-                  variant="primary" 
-                  size="large"
-                  onClick={() => setIsModalOpen(true)}
-                  icon={<FaArrowRight />}
-                  iconPosition="right"
-                >
-                  Get Free Audit
-                </Button>
-                <Button variant="outline" size="large" to="/services">
-                  Explore Services
-                </Button>
-              </motion.div>
-
-              <motion.div
-                className="hero-badges"
-                initial={{ opacity: 0 }}
-                animate={heroInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                <div className="badge">
-                  <FaStar /> <span>500+ Clients</span>
-                </div>
-                <div className="badge">
-                  <FaTrophy /> <span>5+ Years</span>
-                </div>
-                <div className="badge">
-                  <FaChartLine /> <span>3x ROAS</span>
-                </div>
-              </motion.div>
-            </motion.div>
-
+              AmzCoz
+            </motion.h1>
             <motion.div
-              className="hero-visual"
-              initial={{ opacity: 0, x: 50 }}
-              animate={heroInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 1, delay: 0.4 }}
+              className="moon-wrap"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.9, delay: 0.25 }}
             >
-              <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="AMZCOZ - Amazon Growth Experts"
-                className="hero-image"
-              />
+              <MoonGalaxy />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="stats-section" ref={statsRef}>
         <div className="container">
           <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="stat-card"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={statsInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-              >
-                <div className="stat-icon" style={{ color: stat.color }}>
-                  <stat.icon />
-                </div>
-                <div className="stat-value">{stat.value}</div>
-                <div className="stat-label">{stat.label}</div>
-              </motion.div>
-            ))}
+            {stats.map((stat, index) => {
+              const isHeroStat = index === 0
+              return (
+                <motion.div
+                  key={index}
+                  className={`stat-card${isHeroStat ? ' stat-card--hero' : ''}`}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  animate={statsInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: isHeroStat ? 1.01 : 1.04 }}
+                >
+                  {isHeroStat && <span className="stat-card__tag">Trusted by brands</span>}
+                  <div className="stat-card__icon" style={{ color: stat.color }}>
+                    <stat.icon />
+                  </div>
+                  <div className="stat-card__body">
+                    <div className="stat-card__value">{stat.value}</div>
+                    <div className="stat-card__label">{stat.label}</div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -315,14 +256,14 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2>Ready to Scale Your Amazon Business?</h2>
-            <p>Get a free brand audit and discover growth opportunities</p>
+            <h2>Ready to Scale Your E-commerce Business?</h2>
+            <p>Get a free consultation and discover growth opportunities across all platforms</p>
             <Button 
               variant="primary" 
               size="large"
               onClick={() => setIsModalOpen(true)}
             >
-              Request Free Audit
+              Get Free Consultation
             </Button>
           </motion.div>
         </div>
@@ -332,7 +273,7 @@ const Home = () => {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title="Request Your Free Amazon Brand Audit"
+        title="Get Your Free Consultation"
         size="large"
       >
         <LeadForm onSuccess={() => setIsModalOpen(false)} />

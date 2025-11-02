@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Button from '../Button/Button'
 import './LeadForm.css'
+import emailjs from '@emailjs/browser'
 
 const LeadForm = ({ onSuccess, variant = 'default' }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    serviceType: '',
+    platform: '',
     storeLink: '',
     category: '',
     challenges: '',
@@ -16,6 +19,25 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+
+  const serviceTypes = [
+    'E-commerce Management',
+    'Advertising & Marketing',
+    'Brand Enhancement',
+    'Web Development',
+    'Social Media Marketing',
+    'Other',
+  ]
+
+  const platforms = [
+    'Amazon',
+    'Flipkart',
+    'Myntra',
+    'Ajio',
+    'Jio Mart',
+    'Meesho',
+    'Other',
+  ]
 
   const categories = [
     'Electronics',
@@ -57,8 +79,8 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
       newErrors.phone = 'Invalid phone number'
     }
 
-    if (!formData.category) {
-      newErrors.category = 'Please select a category'
+    if (!formData.serviceType) {
+      newErrors.serviceType = 'Please select a service type'
     }
 
     setErrors(newErrors)
@@ -74,26 +96,59 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
 
     setIsSubmitting(true)
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData)
-      setIsSubmitting(false)
-      setIsSuccess(true)
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-      // Reset form after 2 seconds
-      setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          storeLink: '',
-          category: '',
-          challenges: '',
-        })
-        setIsSuccess(false)
-        if (onSuccess) onSuccess()
-      }, 2000)
-    }, 1500)
+    if (!serviceId || !templateId || !publicKey) {
+      alert('Email service is not configured. Please add EmailJS keys to your environment.')
+      setIsSubmitting(false)
+      return
+    }
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      serviceType: formData.serviceType,
+      platform: formData.platform,
+      storeLink: formData.storeLink,
+      category: formData.category,
+      challenges: formData.challenges,
+      message: `New booking request from ${formData.name}\n\n` +
+        [
+          `Service Type: ${formData.serviceType}`,
+          `Platform: ${formData.platform || 'N/A'}`,
+          `Store/Website: ${formData.storeLink || 'N/A'}`,
+          `Category: ${formData.category || 'N/A'}`,
+          '',
+          'Requirements / Notes:',
+          formData.challenges || 'N/A',
+        ].join('\n')
+    }
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+
+      setIsSuccess(true)
+      alert('Email sent successfully!')
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        serviceType: '',
+        platform: '',
+        storeLink: '',
+        category: '',
+        challenges: '',
+      })
+      if (onSuccess) onSuccess()
+    } catch (err) {
+      console.error('Lead form submission failed:', err)
+      alert('Unable to send email right now. Please try again later.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSuccess) {
@@ -162,8 +217,49 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
         </div>
 
         <div className="form-group">
+          <label htmlFor="serviceType" className="form-label">
+            Service Type <span className="required">*</span>
+          </label>
+          <select
+            id="serviceType"
+            name="serviceType"
+            value={formData.serviceType}
+            onChange={handleChange}
+            className={`form-select ${errors.serviceType ? 'error' : ''}`}
+          >
+            <option value="">Select a service</option>
+            {serviceTypes.map((service) => (
+              <option key={service} value={service}>
+                {service}
+              </option>
+            ))}
+          </select>
+          {errors.serviceType && <span className="error-message">{errors.serviceType}</span>}
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="platform" className="form-label">
+            Platform {formData.serviceType?.includes('E-commerce') || formData.serviceType?.includes('Marketing') ? <span className="required">*</span> : '(Optional)'}
+          </label>
+          <select
+            id="platform"
+            name="platform"
+            value={formData.platform}
+            onChange={handleChange}
+            className="form-select"
+          >
+            <option value="">Select a platform</option>
+            {platforms.map((platform) => (
+              <option key={platform} value={platform}>
+                {platform}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
           <label htmlFor="storeLink" className="form-label">
-            Amazon Store Link
+            Store/Website Link (Optional)
           </label>
           <input
             type="url"
@@ -172,20 +268,20 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
             value={formData.storeLink}
             onChange={handleChange}
             className="form-input"
-            placeholder="https://amazon.in/..."
+            placeholder="https://..."
           />
         </div>
 
-        <div className="form-group form-group-full">
+        <div className="form-group">
           <label htmlFor="category" className="form-label">
-            Product Category <span className="required">*</span>
+            Product/Business Category (Optional)
           </label>
           <select
             id="category"
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className={`form-select ${errors.category ? 'error' : ''}`}
+            className="form-select"
           >
             <option value="">Select a category</option>
             {categories.map((cat) => (
@@ -194,12 +290,11 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
               </option>
             ))}
           </select>
-          {errors.category && <span className="error-message">{errors.category}</span>}
         </div>
 
         <div className="form-group form-group-full">
           <label htmlFor="challenges" className="form-label">
-            What challenges are you facing?
+            Tell us about your requirements
           </label>
           <textarea
             id="challenges"
@@ -207,7 +302,7 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
             value={formData.challenges}
             onChange={handleChange}
             className="form-textarea"
-            placeholder="Tell us about your current challenges with Amazon sales, advertising, or account management..."
+            placeholder="Tell us about your current challenges, goals, or what you're looking to achieve..."
             rows="4"
           />
         </div>
@@ -221,7 +316,7 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
           fullWidth
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Submitting...' : 'Request Free Audit'}
+          {isSubmitting ? 'Submitting...' : 'Get Started'}
         </Button>
       </div>
 

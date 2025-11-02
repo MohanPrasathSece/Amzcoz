@@ -1,6 +1,8 @@
 .footer {
-  background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
+  background: linear-gradient(135deg, var(--dark-space) 0%, var(--primary-black) 100%);
   margin-top: 4rem;
+  border-top: 1px solid var(--glass-border);
+  position: relative;
 }
 
 .footer-main {
@@ -44,8 +46,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--white);
-  color: var(--primary-blue);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: var(--accent-blue);
   border-radius: 50%;
   font-size: 1.1rem;
   transition: all 0.3s ease;
@@ -53,15 +57,16 @@
 }
 
 .social-link:hover {
-  background-color: var(--primary-blue);
-  color: var(--white);
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+  color: var(--primary-black);
+  box-shadow: var(--glow-blue);
+  transform: translateY(-3px);
 }
 
 .footer-title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-white);
   margin-bottom: 0.5rem;
 }
 
@@ -80,8 +85,9 @@
 }
 
 .footer-link:hover {
-  color: var(--primary-blue);
+  color: var(--accent-blue);
   transform: translateX(5px);
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
 .footer-contact {
@@ -98,10 +104,11 @@
 }
 
 .contact-icon {
-  color: var(--primary-blue);
+  color: var(--accent-blue);
   font-size: 1.1rem;
   margin-top: 2px;
   flex-shrink: 0;
+  filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.3));
 }
 
 .contact-link,
@@ -112,11 +119,12 @@
 }
 
 .contact-link:hover {
-  color: var(--primary-blue);
+  color: var(--accent-blue);
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(74, 144, 226, 0.2);
+  border-top: 1px solid var(--glass-border);
   padding: 1.5rem 0;
 }
 
@@ -140,7 +148,8 @@
 }
 
 .legal-link:hover {
-  color: var(--primary-blue);
+  color: var(--accent-blue);
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
 .separator {
@@ -150,7 +159,7 @@
 .footer-attribution {
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(74, 144, 226, 0.1);
+  border-top: 1px solid var(--glass-border);
   text-align: center;
   font-size: 0.85rem;
   color: var(--text-gray);
@@ -161,15 +170,17 @@
 }
 
 .zyra-link {
-  color: var(--primary-blue);
+  color: var(--accent-blue);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.3);
 }
 
 .zyra-link:hover {
-  color: var(--dark-blue);
+  color: var(--light-blue);
   text-decoration: underline;
+  text-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
 }
 
 @media (max-width: 1024px) {

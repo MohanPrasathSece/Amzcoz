@@ -2,9 +2,28 @@
 .about-header {
   position: relative;
   padding: 8rem 0 6rem;
-  background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
+  background: transparent;
   overflow: hidden;
 }
+
+/* === Disable background animations and shapes (About) === */
+.about-header::before,
+.about-header::after { content: none !important; display: none !important; }
+.about-shape { display: none !important; }
+.about-shape-1, .about-shape-2 { display: none !important; }
+
+/* Kill any background/pseudo animations */
+.about-header::before,
+.about-header::after,
+.about-shape { animation: none !important; }
+
+/* Cards decorative overlays */
+.mission-card::before,
+.mission-icon::after,
+.achievement-card::before,
+.achievement-card::after,
+.value-card::before,
+.value-card::after { animation: none !important; }
 
 .about-header::before {
   content: '';
@@ -13,11 +32,11 @@
   left: 10%;
   width: 150px;
   height: 150px;
-  background: linear-gradient(45deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+  background: linear-gradient(45deg, var(--accent-blue) 0%, var(--light-blue) 100%);
   border-radius: 20px;
   transform: perspective(1000px) rotateX(30deg) rotateY(-20deg);
   animation: floatRotate 12s ease-in-out infinite;
-  box-shadow: 0 15px 40px rgba(74, 144, 226, 0.2);
+  box-shadow: var(--glow-blue);
   z-index: 1;
 }
 
@@ -28,20 +47,21 @@
   right: 15%;
   width: 100px;
   height: 100px;
-  background: linear-gradient(135deg, var(--light-blue) 0%, rgba(74, 144, 226, 0.3) 100%);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.3) 0%, transparent 70%);
   border-radius: 50%;
   transform: perspective(1000px) rotateX(-20deg) rotateY(30deg);
   animation: floatRotate 10s ease-in-out infinite reverse;
-  box-shadow: 0 10px 30px rgba(74, 144, 226, 0.15);
+  box-shadow: var(--glow-blue);
   z-index: 1;
 }
 
 .about-shape {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(37, 99, 235, 0.1) 100%);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 70%);
   animation: float 15s ease-in-out infinite;
   transform-style: preserve-3d;
+  box-shadow: var(--glow-blue);
 }
 
 .about-shape-1 {
@@ -50,7 +70,7 @@
   top: -150px;
   right: -100px;
   transform: perspective(1000px) rotateX(20deg) rotateY(15deg);
-  box-shadow: 0 20px 60px rgba(74, 144, 226, 0.1);
+  box-shadow: var(--glow-blue);
 }
 
 .about-shape-2 {
@@ -60,7 +80,7 @@
   left: -80px;
   animation-delay: 5s;
   transform: perspective(1000px) rotateX(-15deg) rotateY(-20deg);
-  box-shadow: 0 15px 50px rgba(37, 99, 235, 0.08);
+  box-shadow: var(--glow-blue);
 }
 
 .about-header-content {
@@ -100,7 +120,9 @@
 }
 
 .mission-card {
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   padding: 2.5rem;
   border-radius: 16px;
   box-shadow: var(--shadow-md);
@@ -118,7 +140,7 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, var(--primary-blue), var(--dark-blue), var(--light-blue));
+  background: linear-gradient(45deg, var(--accent-blue), var(--light-blue), var(--accent-blue));
   border-radius: 18px;
   z-index: -1;
   opacity: 0;
@@ -131,15 +153,16 @@
 
 .mission-card:hover {
   transform: translateY(-10px) perspective(1000px) rotateX(5deg) rotateY(-5deg);
-  box-shadow: var(--shadow-lg);
-  background: linear-gradient(135deg, var(--white) 0%, rgba(248, 251, 255, 0.8) 100%);
+  box-shadow: var(--glow-blue);
+  background: rgba(96, 165, 250, 0.1);
+  border-color: var(--accent-blue);
 }
 
 .mission-icon {
   width: 65px;
   height: 65px;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -148,14 +171,14 @@
   margin-bottom: 1.5rem;
   transition: all 0.4s ease;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2);
+  box-shadow: var(--glow-blue);
 }
 
 .mission-icon::after {
   content: '';
   position: absolute;
   inset: -4px;
-  background: linear-gradient(45deg, var(--primary-blue), var(--dark-blue), var(--light-blue));
+  background: linear-gradient(45deg, var(--accent-blue), var(--light-blue), var(--accent-blue));
   border-radius: 20px;
   z-index: -1;
   opacity: 0;
@@ -164,7 +187,7 @@
 
 .mission-card:hover .mission-icon {
   transform: scale(1.1) rotate(5deg) perspective(1000px) rotateX(-10deg) rotateY(10deg);
-  box-shadow: 0 12px 35px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 0 35px rgba(96, 165, 250, 0.8);
 }
 
 .mission-card:hover .mission-icon::after {
@@ -174,7 +197,7 @@
 .mission-card h2 {
   font-size: 1.75rem;
   margin-bottom: 1.25rem;
-  color: var(--text-dark);
+  color: var(--text-white);
   transform: perspective(1000px) rotateX(0deg);
   transition: transform 0.4s ease 0.1s;
 }
@@ -205,7 +228,9 @@
   display: flex;
   gap: 1.25rem;
   padding: 1.75rem;
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
@@ -213,14 +238,15 @@
 
 .additional-feature:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glow-blue);
+  border-color: var(--accent-blue);
 }
 
 .feature-number {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -228,12 +254,13 @@
   font-size: 1.25rem;
   font-weight: 700;
   flex-shrink: 0;
+  box-shadow: var(--glow-blue);
 }
 
 .feature-content h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .feature-content p {
@@ -250,7 +277,9 @@
 }
 
 .achievement-card {
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   padding: 1.5rem 1rem;
   border-radius: 10px;
   text-align: center;
@@ -269,7 +298,7 @@
   left: 50%;
   width: 0;
   height: 0;
-  background: radial-gradient(circle, rgba(74, 144, 226, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
   transition: all 0.4s ease;
   transform: translate(-50%, -50%);
   border-radius: 50%;
@@ -282,7 +311,7 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, var(--primary-blue), var(--dark-blue), var(--light-blue));
+  background: linear-gradient(45deg, var(--accent-blue), var(--light-blue), var(--accent-blue));
   border-radius: 12px;
   z-index: -1;
   opacity: 0;
@@ -299,17 +328,18 @@
 }
 
 .achievement-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glow-blue);
   transform: translateY(-3px) perspective(1000px) rotateX(2deg) rotateY(-2deg);
-  background: linear-gradient(135deg, var(--white) 0%, rgba(248, 251, 255, 0.6) 100%);
+  background: rgba(96, 165, 250, 0.08);
+  border-color: var(--accent-blue);
 }
 
 .achievement-icon {
   width: 45px;
   height: 45px;
   margin: 0 auto 0.75rem;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -317,18 +347,18 @@
   font-size: 1.25rem;
   transition: all 0.3s ease;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+  box-shadow: var(--glow-blue);
 }
 
 .achievement-card:hover .achievement-icon {
   transform: scale(1.1) perspective(1000px) rotateX(-8deg) rotateY(8deg);
-  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+  box-shadow: 0 0 25px rgba(96, 165, 250, 0.8);
 }
 
 .achievement-value {
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: var(--text-white);
   margin-bottom: 0.25rem;
   font-family: 'Poppins', sans-serif;
   transform: perspective(1000px) rotateX(0deg);
@@ -360,13 +390,14 @@
 }
 
 .value-card {
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
   box-shadow: var(--shadow-sm);
   transition: all 0.4s ease;
-  border: 2px solid transparent;
   position: relative;
   overflow: hidden;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
@@ -410,10 +441,10 @@
 }
 
 .value-card:hover {
-  border-color: var(--primary-blue);
-  box-shadow: var(--shadow-md);
+  border-color: var(--accent-blue);
+  box-shadow: var(--glow-blue);
   transform: translateY(-5px) perspective(1000px) rotateX(3deg) rotateY(-3deg);
-  background: linear-gradient(135deg, var(--white) 0%, rgba(248, 251, 255, 0.7) 100%);
+  background: rgba(96, 165, 250, 0.1);
 }
 
 .value-icon {
@@ -442,7 +473,7 @@
 .value-card h3 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--text-white);
   transform: perspective(1000px) rotateX(0deg);
   transition: transform 0.4s ease 0.1s;
 }
@@ -895,19 +926,20 @@
 
 /* CTA Section */
 .about-cta {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
   text-align: center;
+  box-shadow: var(--glow-blue);
 }
 
 .about-cta .cta-content h2 {
-  color: var(--white);
+  color: var(--primary-black);
   margin-bottom: 1rem;
 }
 
 .about-cta .cta-content p {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.8);
   margin-bottom: 2rem;
 }
 

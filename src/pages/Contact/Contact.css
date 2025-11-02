@@ -2,7 +2,7 @@
 .contact-header {
   position: relative;
   padding: 8rem 0 6rem;
-  background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -16,10 +16,7 @@
 }
 
 .contact-shape {
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(37, 99, 235, 0.1) 100%);
-  animation: float 15s ease-in-out infinite;
+  display: none;
 }
 
 .contact-shape-1 {
@@ -69,7 +66,7 @@
 .contact-intro h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .contact-intro p {
@@ -90,33 +87,38 @@
   align-items: flex-start;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
 }
 
 .contact-info-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glow-blue);
+  border-color: var(--accent-blue);
+  transform: translateY(-3px);
 }
 
 .info-icon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   flex-shrink: 0;
+  box-shadow: var(--glow-blue);
 }
 
 .info-content h3 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .info-link,
@@ -131,13 +133,16 @@
 }
 
 .info-link:hover {
-  color: var(--primary-blue);
+  color: var(--accent-blue);
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
 /* Service Regions */
 .service-regions {
   padding: 2rem;
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
   margin-bottom: 2.5rem;
@@ -146,7 +151,7 @@
 .service-regions h3 {
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
-  color: var(--text-dark);
+  color: var(--text-white);
   text-align: center;
 }
 
@@ -162,15 +167,18 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 1rem;
-  background: var(--light-blue);
+  background: rgba(96, 165, 250, 0.1);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .region-badge:hover {
-  background: var(--primary-blue);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+  color: var(--primary-black);
+  box-shadow: var(--glow-blue);
+  transform: translateY(-3px);
 }
 
 .region-flag {
@@ -185,15 +193,16 @@
 /* Contact Benefits */
 .contact-benefits {
   padding: 2rem;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
   border-radius: 16px;
-  color: var(--white);
+  color: var(--primary-black);
+  box-shadow: var(--glow-blue);
 }
 
 .contact-benefits h3 {
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
-  color: var(--white);
+  color: var(--primary-black);
   text-align: center;
 }
 
@@ -202,7 +211,8 @@
   align-items: flex-start;
   gap: 1.25rem;
   padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   margin-bottom: 1rem;
   backdrop-filter: blur(10px);
@@ -215,35 +225,37 @@
 .benefit-icon {
   width: 45px;
   height: 45px;
-  background: var(--white);
-  color: var(--primary-blue);
+  background: var(--primary-black);
+  color: var(--accent-blue);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
   flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
 }
 
 .benefit-content h4 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: var(--white);
+  color: var(--primary-black);
 }
 
 .benefit-content p {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.8);
   line-height: 1.6;
 }
 
 /* Contact Form Section */
 .form-container {
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   padding: 3rem;
   border-radius: 20px;
   box-shadow: var(--shadow-lg);
-  border: 2px solid var(--border-color);
 }
 
 .form-header {
@@ -254,7 +266,7 @@
 .form-header h2 {
   font-size: 1.75rem;
   margin-bottom: 0.75rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .form-header p {
@@ -272,7 +284,7 @@
   font-size: 2.5rem;
   margin-bottom: 3rem;
   text-align: center;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .additional-features {
@@ -285,7 +297,9 @@
   display: flex;
   gap: 1.5rem;
   padding: 2rem;
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
@@ -293,14 +307,15 @@
 
 .additional-feature:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glow-blue);
+  border-color: var(--accent-blue);
 }
 
 .feature-number {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -308,12 +323,13 @@
   font-size: 1.5rem;
   font-weight: 700;
   flex-shrink: 0;
+  box-shadow: var(--glow-blue);
 }
 
 .feature-content h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .feature-content p {
@@ -331,21 +347,24 @@
 
 .faq-item {
   padding: 2rem;
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
 }
 
 .faq-item:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glow-blue);
   transform: translateY(-5px);
+  border-color: var(--accent-blue);
 }
 
 .faq-item h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .faq-item p {

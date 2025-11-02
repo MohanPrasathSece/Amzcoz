@@ -2,9 +2,20 @@
 .services-header {
   position: relative;
   padding: 5rem 0 3rem;
-  background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
+  background: transparent;
   overflow: hidden;
 }
+
+/* === Disable background animations and shapes (Services) === */
+.services-header::before,
+.services-header::after { content: none !important; display: none !important; }
+.header-shape { display: none !important; }
+.header-shape-1, .header-shape-2 { display: none !important; }
+
+/* Ensure no animations run on any pseudo backgrounds */
+.services-header::before,
+.services-header::after,
+.header-shape { animation: none !important; }
 
 .services-header-background {
   position: absolute;
@@ -18,7 +29,8 @@
 .header-shape {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(37, 99, 235, 0.1) 100%);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 70%);
+  box-shadow: var(--glow-blue);
 }
 
 .header-shape-1 {
@@ -65,20 +77,23 @@
   align-items: center;
   gap: 1rem;
   padding: 1.5rem 2rem;
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow: var(--shadow-md);
 }
 
 .header-stat svg {
   font-size: 2.5rem;
-  color: var(--primary-blue);
+  color: var(--accent-blue);
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
 }
 
 .header-stat .stat-value {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: var(--text-white);
   line-height: 1;
   margin-bottom: 0.25rem;
 }
@@ -90,22 +105,23 @@
 
 /* Service Detail Cards */
 .services-content {
-  background: var(--white);
+  background: transparent;
 }
 
 .service-detail-card {
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: var(--shadow-md);
   margin-bottom: 1.5rem;
   overflow: hidden;
-  border: 2px solid var(--border-color);
+  border: 1px solid var(--glass-border);
   transition: all 0.4s ease;
 }
 
 .service-detail-card:hover {
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-blue);
+  box-shadow: var(--glow-blue);
+  border-color: var(--accent-blue);
   transform: translateY(-5px);
 }
 
@@ -114,8 +130,8 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
-  border-bottom: 2px solid var(--border-color);
+  background: rgba(96, 165, 250, 0.05);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .service-detail-icon {
@@ -134,7 +150,7 @@
 .service-detail-title h2 {
   font-size: 1.6rem;
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .service-detail-title p {
@@ -153,7 +169,7 @@
 .service-detail-section h3 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .features-list {
@@ -167,25 +183,27 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.5rem 0.6rem;
-  background: var(--light-blue);
+  background: rgba(96, 165, 250, 0.1);
+  border: 1px solid var(--glass-border);
   border-radius: 10px;
   transition: all 0.3s ease;
 }
 
 .feature-item:hover {
-  background: var(--primary-blue);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+  color: var(--primary-black);
   transform: translateX(5px);
+  box-shadow: var(--glow-blue);
 }
 
 .check-icon {
-  color: var(--primary-blue);
+  color: var(--accent-blue);
   font-size: 1rem;
   flex-shrink: 0;
 }
 
 .feature-item:hover .check-icon {
-  color: var(--white);
+  color: var(--primary-black);
 }
 
 .feature-item span {
@@ -204,22 +222,24 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: var(--light-blue);
+  background: rgba(96, 165, 250, 0.1);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .process-step:hover {
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
+  background: rgba(96, 165, 250, 0.15);
+  box-shadow: var(--glow-blue);
   transform: translateX(5px);
+  border-color: var(--accent-blue);
 }
 
 .step-number {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -227,17 +247,19 @@
   font-size: 1.2rem;
   font-weight: 700;
   flex-shrink: 0;
+  box-shadow: var(--glow-blue);
 }
 
 .step-text {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .service-detail-footer {
   padding: 1rem 1.5rem;
-  background: var(--light-blue);
+  background: rgba(96, 165, 250, 0.05);
+  border-top: 1px solid var(--glass-border);
   display: flex;
   justify-content: center;
 }
@@ -251,7 +273,9 @@
 }
 
 .benefit-card {
-  background: var(--white);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
   padding: 1.5rem;
   border-radius: 16px;
   text-align: center;
@@ -260,26 +284,29 @@
 }
 
 .benefit-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--glow-blue);
+  border-color: var(--accent-blue);
+  transform: translateY(-5px);
 }
 
 .benefit-icon {
   width: 56px;
   height: 56px;
   margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+  box-shadow: var(--glow-blue);
 }
 
 .benefit-card h3 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  color: var(--text-white);
 }
 
 .benefit-card p {
@@ -289,26 +316,26 @@
 
 /* CTA Section */
 .services-cta {
-  background: var(--white);
+  background: transparent;
 }
 
 .cta-box {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
   padding: 2rem 1.5rem;
   border-radius: 24px;
   text-align: center;
-  color: var(--white);
-  box-shadow: var(--shadow-xl);
+  color: var(--primary-black);
+  box-shadow: var(--glow-blue);
 }
 
 .cta-box h2 {
-  color: var(--white);
+  color: var(--primary-black);
   margin-bottom: 1rem;
 }
 
 .cta-box p {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.8);
   margin-bottom: 1.25rem;
   max-width: 700px;
   margin-left: auto;

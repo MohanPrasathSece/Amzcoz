@@ -48,44 +48,49 @@
 
 /* Variants */
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-  color: var(--white);
-  box-shadow: var(--shadow-sm);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  color: var(--primary-black);
+  box-shadow: var(--glow-blue);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.8);
+  transform: none;
 }
 
 .btn-secondary {
-  background-color: var(--white);
-  color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  color: var(--accent-blue);
+  border: 2px solid var(--accent-blue);
 }
 
 .btn-secondary:hover {
-  background-color: var(--primary-blue);
-  color: var(--white);
+  background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+  color: var(--primary-black);
+  box-shadow: var(--glow-blue);
 }
 
 .btn-outline {
-  background-color: transparent;
-  color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
+  background: transparent;
+  color: var(--accent-blue);
+  border: 2px solid var(--accent-blue);
 }
 
 .btn-outline:hover {
-  background-color: var(--light-blue);
+  background: rgba(96, 165, 250, 0.1);
+  box-shadow: var(--glow-blue);
 }
 
 .btn-ghost {
-  background-color: transparent;
-  color: var(--primary-blue);
+  background: transparent;
+  color: var(--accent-blue);
 }
 
 .btn-ghost:hover {
-  background-color: var(--light-blue);
+  background: rgba(96, 165, 250, 0.1);
+  box-shadow: var(--glow-blue);
 }
 
 /* Sizes */
