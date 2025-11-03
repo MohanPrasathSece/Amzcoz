@@ -589,10 +589,11 @@
 }
 
 .certifications-box {
-  background: var(--white);
+  background: rgba(96, 165, 250, 0.1);
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(96, 165, 250, 0.2);
   position: relative;
   overflow: hidden;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
@@ -626,7 +627,7 @@
 .certifications-box h3 {
   font-size: 1.3rem;
   margin-bottom: 1.25rem;
-  color: var(--text-dark);
+  color: #ffffff;
   text-align: center;
   transform: perspective(1000px) rotateX(0deg);
   transition: transform 0.4s ease;
@@ -641,8 +642,10 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 1rem;
-  background: var(--light-blue);
+  background: rgba(96, 165, 250, 0.15);
+  border: 1px solid rgba(96, 165, 250, 0.3);
   border-radius: 10px;
+  color: #ffffff;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -665,14 +668,15 @@
 }
 
 .certification-badge:hover {
-  background: var(--primary-blue);
-  color: var(--white);
+  background: rgba(96, 165, 250, 0.3);
+  border-color: rgba(96, 165, 250, 0.6);
+  color: #ffffff;
   transform: translateY(-2px) perspective(1000px) rotateX(2deg) rotateY(-2deg);
-  box-shadow: 0 5px 15px rgba(74, 144, 226, 0.2);
+  box-shadow: 0 5px 15px rgba(96, 165, 250, 0.4);
 }
 
 .certification-badge svg {
-  color: var(--primary-blue);
+  color: #60a5fa;
   font-size: 1.25rem;
   flex-shrink: 0;
   transition: all 0.3s ease;
@@ -680,7 +684,7 @@
 }
 
 .certification-badge:hover svg {
-  color: var(--white);
+  color: #93c5fd;
   transform: scale(1.1) perspective(1000px) rotateX(-5deg);
 }
 

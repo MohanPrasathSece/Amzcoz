@@ -44,7 +44,7 @@
   font-size: clamp(2rem, 10vw, 6rem);
   font-weight: 900;
   letter-spacing: 0.01em;
-  color: #c4b4b4;
+  color: #ffffff;
   opacity: 1;
   line-height: 0.85;
   pointer-events: none;
@@ -452,6 +452,68 @@
   margin: 0 auto 4rem;
 }
 
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .hero {
+    padding: 2.25rem 0 1.5rem;
+    min-height: 70vh;
+  }
+
+  .brand-backdrop {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: center;
+    font-size: clamp(2.5rem, 14vw, 4rem);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-tagline {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .moon-wrap {
+    width: min(420px, 95vw);
+    margin-top: 0.75rem;
+  }
+
+  .stats-section {
+    padding: 3rem 0 2.25rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem 0.5rem;
+    min-height: 100px;
+  }
+
+  .stat-card__value {
+    font-size: 1.5rem;
+  }
+
+  .stat-card__label {
+    font-size: 0.8rem;
+  }
+
+  .stat-card--hero {
+    grid-column: auto;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .btn-primary {
+    background: #000;
+    border-color: #000;
+  }
+}
+
 .section-header h2 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
@@ -606,88 +668,48 @@
 }
 
 .testimonial-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
+  background: transparent;
+  backdrop-filter: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 14px;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
   position: relative;
-  cursor: pointer;
+  cursor: default;
   overflow: hidden;
-  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-  transform-style: preserve-3d;
+  transform: none;
+  transform-style: flat;
 }
 
 .testimonial-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-blue) 0%, var(--light-blue) 100%);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-  transform-origin: left;
-  box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
+  content: none;
 }
 
 .testimonial-card::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -20px;
-  width: 40px;
-  height: 40px;
-  background: radial-gradient(circle, rgba(96, 165, 250, 0.3) 0%, transparent 70%);
-  border-radius: 50%;
-  transform: translateY(-50%) perspective(1000px) rotateX(20deg) rotateY(-20deg);
-  opacity: 0;
-  transition: all 0.4s ease;
-  box-shadow: var(--glow-blue);
+  content: none;
 }
 
-.testimonial-card:hover::before {
-  transform: scaleX(1);
-}
+.testimonial-card:hover::before { content: none; }
 
-.testimonial-card:hover::after {
-  opacity: 0.8;
-  transform: translateY(-50%) translateX(-10px) perspective(1000px) rotateX(-15deg) rotateY(15deg);
-}
+.testimonial-card:hover::after { content: none; }
 
 .testimonial-card:hover {
-  box-shadow: var(--glow-blue);
-  transform: translateY(-5px) perspective(1000px) rotateX(3deg) rotateY(-3deg);
-  background: rgba(96, 165, 250, 0.08);
-  border-color: var(--accent-blue);
+  box-shadow: none;
+  transform: none;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.quote-icon {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 2.5rem;
-  color: var(--accent-blue);
-  opacity: 0.3;
-  transition: all 0.3s ease;
-  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
-}
+.quote-icon { display: none; }
 
-.testimonial-card:hover .quote-icon {
-  opacity: 0.6;
-  transform: scale(1.1) perspective(1000px) rotateX(-10deg) rotateY(10deg);
-  color: var(--light-blue);
-  filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.6));
-}
+.testimonial-card:hover .quote-icon { display: none; }
 
 .testimonial-rating {
   display: flex;
   gap: 0.25rem;
   margin-bottom: 1rem;
-  color: #FFA500;
+  color: #D4AF37; /* royal gold */
   font-size: 1rem;
 }
 
@@ -708,14 +730,15 @@
 .author-avatar {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   flex-shrink: 0;
-  box-shadow: var(--glow-blue);
+  box-shadow: none;
 }
 
 .author-name {
@@ -883,6 +906,11 @@
     padding: 2rem 1.5rem;
   }
 
+  .stat-card__body {
+    align-items: center;
+    text-align: center;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -967,31 +995,44 @@
 
   .stats-grid {
     grid-template-columns: 1fr;
-    gap: 0.3rem;
+    gap: 0.75rem;
   }
 
   .stat-card {
-    padding: 0.85rem 0.75rem;
+    padding: 1rem 0.9rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+    border-radius: 14px;
   }
 
   .stat-card--hero {
     grid-column: span 1;
-    padding: 0.95rem 0.85rem;
+    padding: 1rem 0.9rem;
   }
 
   .stat-card__icon {
-    width: 32px;
-    height: 32px;
-    font-size: 1rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
     margin-bottom: 0.6rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .stat-card__value {
-    font-size: 1.35rem;
+    font-size: 1.6rem;
+    text-align: center;
   }
 
   .stat-card__label {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .stat-card__body {
+    align-items: center;
+    text-align: center;
   }
 
   .stats-section {
@@ -1049,6 +1090,8 @@
 
   .testimonial-card {
     padding: 1.75rem;
+    border-radius: 12px;
+    border-color: rgba(255, 255, 255, 0.16);
   }
 
   .quote-icon {
@@ -1070,4 +1113,14 @@
   .author-company {
     font-size: 0.75rem;
   }
+}
+
+.btn-primary {
+  background: #000;
+  border-color: #000;
+}
+
+.btn-primary:hover {
+  background: #333;
+  border-color: #333;
 }

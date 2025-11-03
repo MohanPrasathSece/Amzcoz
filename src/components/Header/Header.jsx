@@ -23,8 +23,9 @@ const Header = () => {
   }, [])
 
   useEffect(() => {
-    setIsMobileMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    // Close mobile menu on route change
+    setIsMobileMenuOpen(false)
   }, [location])
 
   const scrollToTop = () => {
@@ -41,13 +42,12 @@ const Header = () => {
 
   const handleAuditRequest = () => {
     setIsAuditModalOpen(true)
-    setIsMobileMenuOpen(false)
   }
 
   return (
     <>
       <motion.header
-        className={`header ${isScrolled ? 'scrolled' : ''}`}
+        className={`header ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
@@ -119,7 +119,10 @@ const Header = () => {
                   >
                     <Link
                       to={link.path}
-                      onClick={scrollToTop}
+                      onClick={() => {
+                        scrollToTop()
+                        setIsMobileMenuOpen(false)
+                      }}
                       className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
                     >
                       {link.name}

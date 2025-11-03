@@ -502,7 +502,11 @@
     font-size: 1rem;
   }
 
-  .brands-grid,
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
   .reports-grid,
   .results-grid,
   .capabilities-grid {
@@ -575,15 +579,16 @@
   }
 
   .brand-card {
-    padding: 1.75rem 1.5rem;
+    padding: 1.25rem 1rem;
   }
 
   .brand-logo-wrapper {
-    height: 100px;
+    height: 80px;
+    margin-bottom: 1rem;
   }
 
   .brand-info h3 {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 
   .brand-category {

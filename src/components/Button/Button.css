@@ -49,7 +49,7 @@
 /* Variants */
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
-  color: var(--primary-black);
+  color: #ffffff;
   box-shadow: var(--glow-blue);
   font-weight: 700;
 }

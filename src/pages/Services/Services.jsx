@@ -27,7 +27,7 @@ const Services = () => {
     {
       icon: FaAmazon,
       title: 'Amazon Account Management',
-      description: 'Comprehensive day-to-day management to keep your Amazon business running smoothly and profitably.',
+      description: 'Comprehensive day-to-day management to keep your Amazon business running smoothly and profitably, including coordination with advertising for growth.',
       color: '#FF9900',
       features: [
         'Product Listing Optimization',
@@ -39,7 +39,8 @@ const Services = () => {
         'Storefront Creation/Enhancement',
         'Seller Dashboard Notifications',
         'Case Management & Resolution',
-        'Sales Target Estimation'
+        'Sales Target Estimation',
+        'Advertising Support & Coordination (PPC/DSP)'
       ],
       process: [
         'Initial Account Audit',
@@ -282,9 +283,6 @@ const Services = () => {
         <div className="container">
           <motion.div
             className="services-header-content"
-            initial={{ opacity: 0, x: -50 }}
-            animate={headerInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
           >
             <h1>Our Services</h1>
             <p className="services-subtitle">
@@ -329,10 +327,6 @@ const Services = () => {
         <div className="container">
           <motion.div
             className="section-header"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
             <h2>Why Choose AMZCOZ?</h2>
             <p>Your trusted partner for Amazon growth</p>
@@ -374,11 +368,6 @@ const Services = () => {
               <motion.div
                 key={index}
                 className="benefit-card"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
               >
                 <div className="benefit-icon">
                   <benefit.icon />
@@ -396,10 +385,6 @@ const Services = () => {
         <div className="container">
           <motion.div
             className="cta-box"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
             <h2>Ready to Accelerate Your Amazon Growth?</h2>
             <p>Book a free strategy session and discover how we can help you achieve your goals</p>
@@ -433,12 +418,9 @@ const ServiceCard = ({ service, index, onBookSession }) => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true })
 
   return (
-    <motion.div
+    <div
       ref={ref}
       className="service-detail-card"
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
     >
       <div className="service-detail-header">
         <div className="service-detail-icon" style={{ backgroundColor: service.color }}>
@@ -458,9 +440,6 @@ const ServiceCard = ({ service, index, onBookSession }) => {
               <motion.div
                 key={idx}
                 className="feature-item"
-                initial={{ opacity: 0, x: -30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + idx * 0.05 }}
               >
                 <FaCheck className="check-icon" />
                 <span>{feature}</span>
@@ -476,9 +455,6 @@ const ServiceCard = ({ service, index, onBookSession }) => {
               <motion.div
                 key={idx}
                 className="process-step"
-                initial={{ opacity: 0, x: 30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.5 + idx * 0.1 }}
               >
                 <div className="step-number">{idx + 1}</div>
                 <div className="step-text">{step}</div>
@@ -499,7 +475,7 @@ const ServiceCard = ({ service, index, onBookSession }) => {
           Book Strategy Session
         </Button>
       </div>
-    </motion.div>
+    </div>
   )
 }
 

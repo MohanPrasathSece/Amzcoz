@@ -27,8 +27,8 @@ const Home = () => {
   const [testimonialsRef, testimonialsInView] = useInView({ threshold: 0.2, triggerOnce: true })
 
   const stats = [
-    { icon: FaUsers, value: '500+', label: 'Happy Clients', color: '#4A90E2' },
-    { icon: FaChartLine, value: '3x', label: 'Average ROAS Uplift', color: '#2563EB' },
+    { icon: FaUsers, value: '15+', label: 'Brands', color: '#4A90E2' },
+    { icon: FaChartLine, value: '2x', label: 'ROAS', color: '#2563EB' },
     { icon: FaTrophy, value: '5+', label: 'Years Experience', color: '#4A90E2' },
     { icon: FaStar, value: '98%', label: 'Client Satisfaction', color: '#2563EB' },
   ]
