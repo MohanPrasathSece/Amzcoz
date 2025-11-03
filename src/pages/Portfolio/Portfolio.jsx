@@ -12,14 +12,14 @@ const Portfolio = () => {
   const [reportsRef, reportsInView] = useInView({ threshold: 0.2, triggerOnce: true })
 
   const brands = [
-    { id: 1, name: 'SkyTech Electronics', logo: '/brands/brand1.png', category: 'Electronics' },
-    { id: 2, name: 'Urban Threads', logo: '/brands/brand2.png', category: 'Fashion & Apparel' },
-    { id: 3, name: 'Nest & Nook', logo: '/brands/brand3.png', category: 'Home & Kitchen' },
-    { id: 4, name: 'Glow Rituals', logo: '/brands/brand4.png', category: 'Beauty & Wellness' },
-    { id: 5, name: 'Stride Athletics', logo: '/brands/brand5.png', category: 'Sports & Outdoors' },
-    { id: 6, name: 'PetPlush Co.', logo: '/brands/brand6.png', category: 'Pet Supplies' },
-    { id: 7, name: 'Gourmet Grains', logo: '/brands/brand7.png', category: 'Grocery & Gourmet' },
-    { id: 8, name: 'KraftKids', logo: '/brands/brand8.png', category: 'Toys & Games' },
+    { id: 1, name: 'Akai', logo: '/images/brands/akai.jpg' },
+    { id: 2, name: 'Filgap', logo: '/images/brands/filgap.jpg' },
+    { id: 3, name: 'GoFresh', logo: '/images/brands/gofresh.jpg' },
+    { id: 4, name: 'Korleone', logo: '/images/brands/korleone.jpg' },
+    { id: 5, name: 'Lal Gulab', logo: '/images/brands/lal_gulab.jpg' },
+    { id: 6, name: 'Magic Paints', logo: '/images/brands/magic_paints.jpg' },
+    { id: 7, name: 'Saukhyam', logo: '/images/brands/saukhyam.jpg' },
+    { id: 8, name: 'Wit Blox', logo: '/images/brands/wit_blox.jpg' },
   ]
 
   const reports = [
@@ -202,7 +202,6 @@ const Portfolio = () => {
                 </div>
                 <div className="brand-info">
                   <h3>{brand.name}</h3>
-                  <span className="brand-category">{brand.category}</span>
                 </div>
               </motion.div>
             ))}

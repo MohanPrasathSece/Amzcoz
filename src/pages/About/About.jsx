@@ -341,10 +341,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2>Let's Work Together</h2>
-            <p>Ready to take your Amazon business to the next level?</p>
+            <h2>Ready to Accelerate Your Amazon Growth?</h2>
+            <p>Book a free strategy session and discover how we can help you achieve your goals</p>
             <Button variant="primary" size="large" to="/contact">
-              Get in Touch
+              Book Strategy Session
             </Button>
           </motion.div>
         </div>

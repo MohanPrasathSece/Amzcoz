@@ -100,10 +100,9 @@ const Contact = () => {
               ref={formRef}
             >
               <div className="contact-intro">
-                <h2>Let's Work Together</h2>
+                <h2>Ready to Accelerate Your Amazon Growth?</h2>
                 <p>
-                  Whether you're looking to optimize your existing Amazon presence or 
-                  launch a new product, we're here to help you succeed.
+                  Book a free strategy session and discover how we can help you achieve your goals.
                 </p>
               </div>
 

@@ -61,17 +61,22 @@
 
 .contact-intro {
   margin-bottom: 2.5rem;
+  background: #eef6ff;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  border-radius: 14px;
+  padding: 1.5rem;
 }
 
 .contact-intro h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--text-white);
+  color: #0f172a;
 }
 
 .contact-intro p {
   font-size: 1.1rem;
   line-height: 1.8;
+  color: rgba(15, 23, 42, 0.8);
 }
 
 /* Contact Info Cards */

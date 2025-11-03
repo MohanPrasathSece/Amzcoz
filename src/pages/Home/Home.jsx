@@ -126,29 +126,19 @@ const Home = () => {
 
       <section className="stats-section" ref={statsRef}>
         <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, index) => {
-              const isHeroStat = index === 0
-              return (
-                <motion.div
-                  key={index}
-                  className={`stat-card${isHeroStat ? ' stat-card--hero' : ''}`}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  animate={statsInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -8, scale: isHeroStat ? 1.01 : 1.04 }}
-                >
-                  {isHeroStat && <span className="stat-card__tag">Trusted by brands</span>}
-                  <div className="stat-card__icon" style={{ color: stat.color }}>
-                    <stat.icon />
-                  </div>
-                  <div className="stat-card__body">
-                    <div className="stat-card__value">{stat.value}</div>
-                    <div className="stat-card__label">{stat.label}</div>
-                  </div>
-                </motion.div>
-              )
-            })}
+          <div className="stats-band">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="stat-item"
+                initial={{ opacity: 0, y: 10 }}
+                animate={statsInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className="stat-value">{stat.value}</div>
+                <div className="stat-label">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -264,14 +254,16 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2>Ready to Scale Your E-commerce Business?</h2>
-            <p>Get a free consultation and discover growth opportunities across all platforms</p>
+            <h2>Ready to Accelerate Your Amazon Growth?</h2>
+            <p>Book a free strategy session and discover how we can help you achieve your goals</p>
             <Button 
               variant="primary" 
               size="large"
               onClick={() => setIsModalOpen(true)}
+              icon={<FaArrowRight />}
+              iconPosition="right"
             >
-              Get Free Consultation
+              Book Strategy Session
             </Button>
           </motion.div>
         </div>

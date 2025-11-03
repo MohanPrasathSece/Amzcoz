@@ -190,7 +190,7 @@ html {
 }
 
 .bg-light {
-  background-color: var(--space-gray);
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%);
 }
 
 .section-padding {

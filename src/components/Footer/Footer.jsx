@@ -143,16 +143,6 @@ const Footer = () => {
               <Link to="/terms" className="legal-link">Terms of Service</Link>
             </div>
           </div>
-          <div className="footer-attribution">
-            <a
-              href="https://www.zyradigitals.info"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="zyra-link"
-            >
-              Made with ❤️ Zyra Digitals
-            </a>
-          </div>
         </div>
       </div>
     </footer>

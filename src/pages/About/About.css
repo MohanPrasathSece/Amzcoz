@@ -930,21 +930,29 @@
 
 /* CTA Section */
 .about-cta {
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
-  color: var(--primary-black);
+  background: transparent;
+  color: var(--text-white);
   text-align: center;
-  box-shadow: var(--glow-blue);
+}
+
+.about-cta .cta-content {
+  background: #cfe5ff;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 22px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 .about-cta .cta-content h2 {
-  color: var(--primary-black);
-  margin-bottom: 1rem;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
 }
 
 .about-cta .cta-content p {
-  font-size: 1.25rem;
-  color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: rgba(15, 23, 42, 0.8);
+  margin-bottom: 1.25rem;
 }
 
 /* Responsive Design */
