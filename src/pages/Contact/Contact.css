@@ -54,9 +54,26 @@
 /* Contact Content */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1.1fr;
   gap: 4rem;
   align-items: start;
+}
+
+.contact-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-form-section {
+  align-self: stretch;
+}
+
+.contact-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  grid-column: 1 / -1;
 }
 
 .contact-intro {
@@ -197,60 +214,122 @@
 
 /* Contact Benefits */
 .contact-benefits {
-  padding: 2rem;
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--light-blue) 100%);
-  border-radius: 16px;
-  color: var(--primary-black);
-  box-shadow: var(--glow-blue);
+  padding: 2.5rem;
+  background: radial-gradient(140% 140% at 5% -15%, rgba(37, 99, 235, 0.32) 0%, rgba(12, 18, 32, 0.92) 45%, rgba(8, 12, 24, 0.98) 100%);
+  border-radius: 22px;
+  color: #e2e8f0;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 32px 70px -28px rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.benefits-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(191, 219, 254, 0.9);
+  background: rgba(37, 99, 235, 0.18);
+  margin-bottom: 1.1rem;
+}
+
+.benefits-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
 }
 
 .contact-benefits h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1.5rem;
-  color: var(--primary-black);
-  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 0.65rem;
+  color: #f8fafc;
+  text-align: left;
 }
 
-.benefit-item {
-  display: flex;
-  align-items: flex-start;
+.benefits-subtitle {
+  font-size: 0.98rem;
+  margin-bottom: 2rem;
+  color: rgba(226, 232, 240, 0.75);
+  max-width: 520px;
+}
+
+.benefit-list {
+  display: grid;
   gap: 1.25rem;
-  padding: 1.25rem;
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  backdrop-filter: blur(10px);
 }
 
-.benefit-item:last-child {
-  margin-bottom: 0;
+.benefit-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 18px;
+  background: rgba(13, 25, 48, 0.85);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.benefit-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.28), rgba(56, 189, 248, 0));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -24px rgba(37, 99, 235, 0.8);
+  border-color: rgba(99, 102, 241, 0.45);
+}
+
+.benefit-card:hover::after {
+  opacity: 1;
 }
 
 .benefit-icon {
-  width: 45px;
-  height: 45px;
-  background: var(--primary-black);
-  color: var(--accent-blue);
-  border-radius: 10px;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.55), rgba(99, 102, 241, 0.4));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
-  flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+  font-size: 1.5rem;
+  color: #f8fafc;
+  box-shadow: 0 10px 25px -12px rgba(37, 99, 235, 0.85);
 }
 
 .benefit-content h4 {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-black);
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+  color: #e2e8f0;
 }
 
 .benefit-content p {
   font-size: 0.95rem;
-  color: rgba(0, 0, 0, 0.8);
-  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.7);
+  line-height: 1.7;
+}
+
+.benefit-index {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: rgba(148, 163, 184, 0.75);
+  letter-spacing: 0.18em;
 }
 
 /* Contact Form Section */
@@ -382,6 +461,18 @@
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+
+  .contact-form-section {
+    order: 1;
+  }
+
+  .contact-info-section {
+    order: 2;
+  }
+
+  .contact-extras {
+    order: 3;
   }
 
   .additional-features {

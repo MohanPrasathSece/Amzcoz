@@ -222,20 +222,29 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 whileHover={{ y: -10, scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
               >
-                <div className="quote-icon">
-                  <FaQuoteLeft />
-                </div>
-                <div className="testimonial-rating">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <FaStar key={i} />
-                  ))}
+                <div className="testimonial-header">
+                  <div className="testimonial-quote-mark">“</div>
+                  <div className="testimonial-meta">
+                    <div className="testimonial-rating">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <FaStar key={i} />
+                      ))}
+                    </div>
+                    <span className="testimonial-label">Client Success Story</span>
+                  </div>
                 </div>
                 <p className="testimonial-text">{testimonial.text}</p>
-                <div className="testimonial-author">
-                  <div className="author-avatar">{testimonial.image}</div>
-                  <div className="author-info">
-                    <div className="author-name">{testimonial.name}</div>
-                    <div className="author-company">{testimonial.company}</div>
+                <div className="testimonial-footer">
+                  <div className="testimonial-author">
+                    <div className="author-avatar">{testimonial.image}</div>
+                    <div className="author-info">
+                      <div className="author-name">{testimonial.name}</div>
+                      <div className="author-company">{testimonial.company}</div>
+                    </div>
+                  </div>
+                  <div className="testimonial-company-badge">
+                    <span className="badge-dot" />
+                    <span>Verified Partner</span>
                   </div>
                 </div>
               </motion.div>
@@ -254,8 +263,14 @@ const Home = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <span className="cta-eyebrow">Free Strategy Session</span>
             <h2>Ready to Accelerate Your Amazon Growth?</h2>
             <p>Book a free strategy session and discover how we can help you achieve your goals</p>
+            <div className="cta-pill-row">
+              <span className="cta-pill">15-minute audit</span>
+              <span className="cta-pill">Channel-wise growth plan</span>
+              <span className="cta-pill">Actionable next steps</span>
+            </div>
             <Button 
               variant="primary" 
               size="large"

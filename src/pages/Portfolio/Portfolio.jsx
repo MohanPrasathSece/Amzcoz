@@ -23,6 +23,7 @@ const Portfolio = () => {
     { id: 9, name: 'Innovative Edge', logo: '/images/brands/innovative_edge.png' },
     { id: 10, name: 'Real Nutri Co', logo: '/images/brands/real_nutri_co.png' },
     { id: 11, name: 'Tresa', logo: '/images/brands/tresa.jpg' },
+    { id: 12, name: 'Veg O Vegan', logo: '/images/brands/veg_O_vegan.png' },
   ]
 
   const reports = [

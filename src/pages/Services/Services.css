@@ -350,6 +350,296 @@
   padding: 3rem 0;
 }
 
+.amazon-account-section,
+.amazon-ad-section {
+  background: radial-gradient(circle at top, rgba(8, 18, 36, 0.9) 0%, rgba(4, 8, 18, 1) 60%, rgba(3, 6, 12, 1) 100%);
+  color: #e2e8f0;
+}
+
+.amazon-account-section {
+  border-top: 1px solid rgba(59, 130, 246, 0.15);
+  padding-top: 4rem;
+}
+
+.aas-section-intro {
+  text-align: left;
+  max-width: 780px;
+  margin: 0 auto 2.5rem;
+}
+
+.aas-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.16);
+  color: rgba(191, 219, 254, 0.9);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.aas-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+}
+
+.aas-section-intro h2 {
+  font-size: 2.3rem;
+  margin-bottom: 0.75rem;
+  color: #f8fafc;
+}
+
+.aas-section-intro p {
+  font-size: 1.05rem;
+  color: rgba(226, 232, 240, 0.72);
+  line-height: 1.8;
+}
+
+.aas-content-block {
+  background: rgba(9, 16, 30, 0.9);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 22px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 26px 68px -28px rgba(8, 15, 30, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.aas-content-block h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+  color: #f8fafc;
+}
+
+.aas-content-block > p {
+  font-size: 1rem;
+  color: rgba(226, 232, 240, 0.7);
+  margin-bottom: 1.75rem;
+  line-height: 1.7;
+}
+
+.aas-feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.aas-feature-list--stack {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.aas-feature-list--stack .aas-feature-card {
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  background: rgba(9, 16, 30, 0.92);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.aas-feature-list--stack .aas-feature-dot {
+  margin-top: 0.5rem;
+}
+
+.aas-feature-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  background: rgba(13, 25, 48, 0.85);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.aas-feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 22px 48px -26px rgba(37, 99, 235, 0.75);
+}
+
+.aas-feature-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22d3ee, #6366f1);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+
+.aas-feature-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+  color: #e2e8f0;
+}
+
+.aas-feature-content p {
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.7);
+  line-height: 1.6;
+}
+
+.aas-feature-content ul {
+  margin-top: 0.6rem;
+  padding-left: 1.25rem;
+  color: rgba(148, 163, 184, 0.85);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.aas-inline-insight {
+  margin-top: 2.25rem;
+  padding: 1.75rem;
+  border-radius: 18px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(13, 22, 40, 0.85);
+}
+
+.aas-inline-insight h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+  color: #f8fafc;
+}
+
+.aas-insight-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.aas-insight-card {
+  background: rgba(9, 16, 32, 0.9);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 1.2rem;
+  border-radius: 14px;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aas-insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px -20px rgba(37, 99, 235, 0.65);
+}
+
+.aas-insight-index {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(148, 163, 184, 0.75);
+}
+
+.aas-insight-card h5 {
+  font-size: 1rem;
+  color: #e2e8f0;
+}
+
+.aas-insight-card p {
+  font-size: 0.9rem;
+  color: rgba(203, 213, 225, 0.75);
+  line-height: 1.5;
+}
+
+.aas-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.aas-process-card {
+  background: rgba(10, 18, 34, 0.88);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 14px;
+  padding: 1.15rem;
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aas-process-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 42px -20px rgba(59, 130, 246, 0.6);
+}
+
+.aas-process-index {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(148, 163, 184, 0.75);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.aas-process-card h5 {
+  font-size: 1rem;
+  color: #e2e8f0;
+  margin-bottom: 0.35rem;
+}
+
+.aas-process-card p {
+  font-size: 0.9rem;
+  color: rgba(203, 213, 225, 0.75);
+  line-height: 1.5;
+}
+
+.aas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.aas-panel {
+  background: rgba(11, 19, 34, 0.9);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 20px;
+  padding: 2.25rem;
+  box-shadow: 0 24px 60px -28px rgba(6, 12, 24, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.aas-panel .aas-section-intro {
+  margin: 0 0 1.5rem;
+}
+
+.aas-panel .aas-section-intro h2 {
+  font-size: 1.6rem;
+}
+
+.aas-panel .aas-section-intro p {
+  font-size: 0.95rem;
+}
+
+.aas-conclusion {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.aas-conclusion p {
+  font-size: 1rem;
+  color: rgba(226, 232, 240, 0.75);
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+}
+
+.aas-conclusion .btn-primary {
+  box-shadow: 0 22px 50px -22px rgba(37, 99, 235, 0.7);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .service-detail-content {
@@ -359,6 +649,22 @@
 
   .benefits-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aas-feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .aas-insight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aas-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aas-grid {
+    grid-template-columns: 1fr;
   }
 }
 

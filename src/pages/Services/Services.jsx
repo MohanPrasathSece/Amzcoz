@@ -322,6 +322,10 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Amazon Account & Advertising Deep Dives */}
+      <AmazonAccountManagementSection onBookSession={() => setIsModalOpen(true)} />
+      <AmazonAdvertisingSection onBookSession={() => setIsModalOpen(true)} />
+
       {/* Why Choose Us */}
       <section className="why-choose section-padding bg-light">
         <div className="container">
@@ -480,3 +484,667 @@ const ServiceCard = ({ service, index, onBookSession }) => {
 }
 
 export default Services
+
+const SectionIntro = ({ eyebrow, title, description }) => (
+  <div className="aas-section-intro">
+    {eyebrow && <span className="aas-eyebrow">{eyebrow}</span>}
+    <h2>{title}</h2>
+    {description && <p>{description}</p>}
+  </div>
+)
+
+const FeatureList = ({ features, className = '' }) => (
+  <div className={`aas-feature-list ${className}`.trim()}>
+    {features.map((feature, index) => (
+      <div key={index} className="aas-feature-card">
+        <div className="aas-feature-dot" />
+        <div className="aas-feature-content">
+          <h4>{feature.title}</h4>
+          {feature.description && <p>{feature.description}</p>}
+          {feature.points && (
+            <ul>
+              {feature.points.map((point, idx) => (
+                <li key={idx}>{point}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+)
+
+const AmazonAccountManagementSection = ({ onBookSession }) => (
+  <section className="amazon-account-section section-padding">
+    <div className="container">
+      <SectionIntro
+        eyebrow="Amazon Account Management"
+        title="Strategic Orchestration for Marketplace Momentum"
+        description="From listings and pricing to inventory and analytics, AmzCoz manages every lever that powers sustained Amazon growth."
+      />
+
+      <div className="aas-content-block">
+        <h3>Listing Optimization</h3>
+        <p>
+          High-performing listings are the gateway to profitable advertising and organic discovery. We rebuild every product page to capture search intent and convert shoppers.
+        </p>
+        <FeatureList
+          features={[
+            {
+              title: 'Keyword Research',
+              description: 'Surface the highest value search terms through deep volume, intent, and competitor analysis.'
+            },
+            {
+              title: 'Title Optimization',
+              description: 'Craft authoritative, keyword-rich titles that respect Amazon style guides.'
+            },
+            {
+              title: 'Bullet Point Optimization',
+              description: 'Highlight benefits and differentiators in scannable, conversion-focused bullets.'
+            },
+            {
+              title: 'Product Description Optimization',
+              description: 'Tell a persuasive brand story while addressing common objections and questions.'
+            },
+            {
+              title: 'Image Optimization',
+              description: 'Deploy premium imagery, infographics, and alt text that elevate trust and CTR.'
+            },
+            {
+              title: 'Backend Keyword Optimization',
+              description: 'Strengthen discoverability with backend search terms and structured data.'
+            }
+          ]}
+        />
+        <div className="aas-inline-insight">
+          <h4>Amazon Listing Optimization Process</h4>
+          <div className="aas-process-grid">
+            {[
+              {
+                title: 'Keyword Research',
+                description: 'Identify relevant, high-traffic phrases aligned to shopper intent.'
+              },
+              {
+                title: 'Title Optimization',
+                description: 'Blend priority keywords with compelling positioning.'
+              },
+              {
+                title: 'Bullet Point Optimization',
+                description: 'Showcase core benefits, specs, and use cases clearly.'
+              },
+              {
+                title: 'Product Description Optimization',
+                description: 'Deliver rich detail and storytelling for deeper consideration.'
+              },
+              {
+                title: 'Image Optimization',
+                description: 'Use visual narratives and compliance-ready assets across angles.'
+              },
+              {
+                title: 'Backend Keyword Optimization',
+                description: 'Reinforce search relevance without crowding customer-facing copy.'
+              }
+            ].map((item, index) => (
+              <div key={index} className="aas-process-card">
+                <div className="aas-process-index">0{index + 1}</div>
+                <div>
+                  <h5>{item.title}</h5>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="aas-grid">
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Market Intel"
+            title="Competition Research"
+            description="Stay ahead with continual insights into rival pricing, positioning, and reviews."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Competitor Identification',
+                description: 'Map leading ASINs, brands, and private labels in your niche.'
+              },
+              {
+                title: 'Pricing Analysis',
+                description: 'Benchmark price movements to safeguard margins and appeal.'
+              },
+              {
+                title: 'Listing Analysis',
+                description: 'Evaluate copy, creatives, and differentiators to guide enhancements.'
+              },
+              {
+                title: 'Review Analysis',
+                description: 'Mine feedback for opportunity gaps and product improvements.'
+              },
+              {
+                title: 'Keyword Analysis',
+                description: 'Discover new keyword angles and defensive targets from competitors.'
+              }
+            ]}
+          />
+        </article>
+
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Fulfillment Excellence"
+            title="Order Processing"
+            description="Deliver white-glove customer experience through disciplined operations."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Order Monitoring',
+                description: 'Track inbound orders to trigger swift fulfillment workflows.'
+              },
+              {
+                title: 'Shipping Confirmation',
+                description: 'Sync shipment confirmations and tracking back to Amazon seamlessly.'
+              },
+              {
+                title: 'Customer Service',
+                description: 'Resolve inquiries and escalations to protect seller ratings.'
+              },
+              {
+                title: 'Feedback Management',
+                description: 'Respond to reviews professionally to maintain a positive brand voice.'
+              },
+              {
+                title: 'Return Processing',
+                description: 'Handle refunds within policy to preserve customer trust.'
+              }
+            ]}
+          />
+        </article>
+      </div>
+
+      <div className="aas-grid">
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Revenue Architecture"
+            title="Pricing Strategy"
+            description="Dynamic pricing rooted in data ensures competitiveness without eroding profit."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Market Analysis',
+                description: 'Calibrate price bands based on demand and category activity.'
+              },
+              {
+                title: 'Cost Analysis',
+                description: 'Factor landed costs, fees, and target margins into every change.'
+              },
+              {
+                title: 'Dynamic Pricing',
+                description: 'Automate rule-based adjustments to win the buy box responsibly.'
+              },
+              {
+                title: 'Promotional Pricing',
+                description: 'Engineer deal cadences that lift velocity without training price sensitivity.'
+              }
+            ]}
+          />
+          <div className="aas-inline-insight">
+            <h4>Which pricing strategy suits your next objective?</h4>
+            <div className="aas-process-grid">
+              {[
+                {
+                  title: 'Dynamic Pricing',
+                  description: 'React to market shifts and competitor moves automatically.'
+                },
+                {
+                  title: 'Cost Analysis',
+                  description: 'Validate profitability before activating roll-outs.'
+                },
+                {
+                  title: 'Market Analysis',
+                  description: 'Discover the sweet spot for conversion and margin.'
+                },
+                {
+                  title: 'Promotional Pricing',
+                  description: 'Drive bursts of visibility during seasonal or launch pushes.'
+                }
+              ].map((item, index) => (
+                <div key={index} className="aas-process-card">
+                  <div className="aas-process-index">0{index + 1}</div>
+                  <div>
+                    <h5>{item.title}</h5>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
+
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Stock Mastery"
+            title="Inventory Management"
+            description="Align supply with demand to avoid stockouts, excess fees, and ranking loss."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Demand Forecasting',
+                description: 'Model demand using historical velocity and seasonal insights.'
+              },
+              {
+                title: 'Restock Planning',
+                description: 'Build replenishment cadences that secure best-seller rank continuity.'
+              },
+              {
+                title: 'Stock Health Monitoring',
+                description: 'Spot slow movers and FBA aged inventory before fees accrue.'
+              },
+              {
+                title: 'Inventory Optimization',
+                description: 'Balance storage costs with sales opportunities for every SKU.'
+              }
+            ]}
+          />
+        </article>
+      </div>
+
+      <div className="aas-grid">
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Demand Spikes"
+            title="Promotions"
+            description="Plan, launch, and optimize deals that amplify visibility and conversion."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Deal Creation',
+                description: 'Design featured deals that align with inventory and margin goals.'
+              },
+              {
+                title: 'Coupon Creation',
+                description: 'Deploy coupon levers that nudge hesitant shoppers to convert.'
+              },
+              {
+                title: 'Seasonal Campaign Execution',
+                description: 'Capitalize on holiday and event-based shopping windows.'
+              },
+              {
+                title: 'Promotion Monitoring',
+                description: 'Tune live promotions in response to performance data.'
+              }
+            ]}
+          />
+        </article>
+
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Traffic Lift"
+            title="Advertising (PPC)"
+            description="Full-funnel PPC programs that protect ACoS while scaling revenue."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Campaign Setup',
+                description: 'Launch laser-targeted campaigns aligned to SKU objectives.'
+              },
+              {
+                title: 'Keyword Targeting',
+                description: 'Target match types and long-tail queries that convert.'
+              },
+              {
+                title: 'Ad Optimization',
+                description: 'Iterate creatives and placements to maximize CTR and CVR.'
+              },
+              {
+                title: 'ACoS Control',
+                description: 'Guard profitability with pacing rules and bid adjustments.'
+              },
+              {
+                title: 'ROI-Focused Optimization',
+                description: 'Channel spend toward campaigns delivering superior contribution margin.'
+              }
+            ]}
+          />
+        </article>
+      </div>
+
+      <div className="aas-grid">
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Intelligence"
+            title="Data Analytics & Strategy"
+            description="Turn data exhaust into actionable growth playbooks for every quarter."
+          />
+          <FeatureList
+            className="aas-feature-list--stack"
+            features={[
+              {
+                title: 'In-Depth Reporting',
+                description: 'Deliver dashboards covering sales, advertising, and inventory KPIs.'
+              },
+              {
+                title: 'Growth-Focused Planning',
+                description: 'Use analytics to set ambitious yet achievable roadmaps.'
+              },
+              {
+                title: 'Strategic Recommendations',
+                description: 'Translate insights into concrete actions that accelerate marketplace performance.'
+              }
+            ]}
+          />
+          <div className="aas-inline-insight">
+            <h4>How data analytics unlocks Amazon performance</h4>
+            <div className="aas-process-grid">
+              {[
+                {
+                  title: 'In-Depth Reporting',
+                  description: 'Understand what is happening across catalogue, ads, and operations.'
+                },
+                {
+                  title: 'Growth-Focused Planning',
+                  description: 'Set targets based on evidence, not intuition.'
+                },
+                {
+                  title: 'Strategic Recommendations',
+                  description: 'Deploy insights that directly improve rankings and retention.'
+                }
+              ].map((item, index) => (
+                <div key={index} className="aas-process-card">
+                  <div className="aas-process-index">0{index + 1}</div>
+                  <div>
+                    <h5>{item.title}</h5>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div className="aas-conclusion">
+        <p>
+          Partnering with AmzCoz means your Amazon business benefits from proactive management across every discipline—ensuring listings convert, prices compete, stock stays healthy, and data leads the way.
+        </p>
+        <Button
+          variant="primary"
+          size="large"
+          onClick={onBookSession}
+          icon={<FaArrowRight />}
+          iconPosition="right"
+        >
+          Speak with an Account Strategist
+        </Button>
+      </div>
+    </div>
+  </section>
+)
+
+const AmazonAdvertisingSection = ({ onBookSession }) => (
+  <section className="amazon-ad-section section-padding">
+    <div className="container">
+      <SectionIntro
+        eyebrow="Amazon Advertising Management"
+        title="Profitable Growth with Smarter Ad Spend"
+        description="Our advertising pod at AmzCoz balances automated precision with human expertise to align your ACoS, sales, and visibility goals."
+      />
+
+      <div className="aas-content-block">
+        <h3>Listing Optimization</h3>
+        <p>
+          Effective advertising begins with high-converting product detail pages. We refine your listings so every click has the best chance to convert.
+        </p>
+        <FeatureList
+          features={[
+            {
+              title: 'Keyword Research',
+              description: 'Identify high-converting terms to strengthen discoverability and relevance.'
+            },
+            {
+              title: 'Compelling Copywriting',
+              description: 'Persuasive storytelling that highlights differentiators and buying triggers.'
+            },
+            {
+              title: 'High-Quality Images',
+              description: 'Premium visuals sized for every module to build trust instantly.'
+            },
+            {
+              title: 'A/B Testing',
+              description: 'Iterative testing on titles, creative and bullets to push conversion rates higher.'
+            }
+          ]}
+        />
+        <div className="aas-inline-insight">
+          <h4>How to optimize Amazon listings for better ad results?</h4>
+          <div className="aas-insight-grid">
+            {[
+              {
+                title: 'High-Quality Images',
+                description: 'Visually appealing assets signal credibility and reduce bounce.'
+              },
+              {
+                title: 'Compelling Copywriting',
+                description: 'Benefit-led messaging raises engagement and conversion.'
+              },
+              {
+                title: 'Keyword Research',
+                description: 'Intent-rich keywords improve ranking and ad efficiency.'
+              },
+              {
+                title: 'A/B Testing',
+                description: 'Experimentation uncovers the best-performing presentation.'
+              }
+            ].map((item, index) => (
+              <div key={index} className="aas-insight-card">
+                <div className="aas-insight-index">0{index + 1}</div>
+                <div>
+                  <h5>{item.title}</h5>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="aas-grid">
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Command Center"
+            title="Seller Dashboard Oversight"
+            description="Proactive monitoring keeps your account healthy and responsive to Amazon signals."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Inventory Alerts',
+                description: 'Anticipate stockouts and maintain buy-box momentum.'
+              },
+              {
+                title: 'Policy Violations',
+                description: 'Catch compliance issues before they escalate to suspensions.'
+              },
+              {
+                title: 'Performance Metrics',
+                description: 'Watch KPIs across sales, conversion, and ACoS daily.'
+              },
+              {
+                title: 'Shipping Issues',
+                description: 'Resolve fulfillment delays that threaten CX and rankings.'
+              }
+            ]}
+          />
+        </article>
+
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Forecasting"
+            title="Spend & Sales Planning"
+            description="A forward-looking budget keeps campaigns on pace with growth targets."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Historical Data Analysis',
+                description: 'Spot seasonality, winning placements, and cost benchmarks.'
+              },
+              {
+                title: 'Market Research',
+                description: 'Understand competitor moves and category velocity.'
+              },
+              {
+                title: 'Goal Setting',
+                description: 'Define ACoS, TACoS and revenue objectives for each funnel stage.'
+              },
+              {
+                title: 'Budget Allocation',
+                description: 'Distribute resources to the highest return audiences and keywords.'
+              }
+            ]}
+          />
+        </article>
+      </div>
+
+      <div className="aas-grid">
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Day-to-Day Control"
+            title="Daily Budget-Level Optimization"
+            description="Micro adjustments keep spend efficient as pacing and marketplace trends shift."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Performance Monitoring',
+                description: 'Track campaign and keyword metrics daily to stay aligned with goals.'
+              },
+              {
+                title: 'Budget Adjustments',
+                description: 'Scale investment based on performance velocity and seasonality.'
+              },
+              {
+                title: 'Keyword Refinement',
+                description: 'Harvest new opportunities and pause under-performers quickly.'
+              },
+              {
+                title: 'Bid Optimization',
+                description: 'Balance impression share with CPA and ROAS expectations.'
+              }
+            ]}
+          />
+        </article>
+
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Launch & Scale"
+            title="Campaign Creation"
+            description="Structured buildouts ensure every product gets the right coverage across ad types."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Keyword Research',
+                description: 'Surface high-intent search queries tied to your catalogue.'
+              },
+              {
+                title: 'Campaign Structure',
+                description: 'Design campaigns for control, scalability, and reporting clarity.'
+              },
+              {
+                title: 'Ad Copy Creation',
+                description: 'Write persuasive Sponsored Ads messaging that drives clicks.'
+              },
+              {
+                title: 'Targeting Options',
+                description: 'Blend keyword, product, and audience targeting to cover the funnel.'
+              }
+            ]}
+          />
+        </article>
+      </div>
+
+      <div className="aas-grid">
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Continuous Improvement"
+            title="Ongoing Campaign Optimization"
+            description="Stay ahead of ACoS shifts with continuous testing, refinement, and landing page alignment."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Performance Monitoring',
+                description: 'Watch ROAS, ACoS, and conversion behavior to guide changes.'
+              },
+              {
+                title: 'Keyword Refinement',
+                description: 'Add, segment, or pause keywords according to profitability.'
+              },
+              {
+                title: 'Bid Optimization',
+                description: 'Adjust bids across match types to capture incremental demand.'
+              },
+              {
+                title: 'Ad Copy Testing',
+                description: 'Experiment with creative angles to maintain ad fatigue resilience.'
+              },
+              {
+                title: 'Landing Page Optimization',
+                description: 'Ensure PDPs and stores reinforce the ad promise for higher conversion.'
+              }
+            ]}
+          />
+        </article>
+
+        <article className="aas-panel">
+          <SectionIntro
+            eyebrow="Competitive Edge"
+            title="Competitor Analysis"
+            description="Insights into rival strategies inform positioning and budget priorities."
+          />
+          <FeatureList
+            features={[
+              {
+                title: 'Identifying Key Competitors',
+                description: 'Map the players contesting your category space.'
+              },
+              {
+                title: 'Analyzing Their Strategies',
+                description: 'Review listing quality, pricing, ad placements, and sentiment.'
+              },
+              {
+                title: 'Identifying Opportunities',
+                description: 'Spot gaps for product differentiation and campaign expansion.'
+              },
+              {
+                title: 'Adjusting Your Strategy',
+                description: 'Shift bids, messaging, and product focus based on competitive intel.'
+              }
+            ]}
+          />
+        </article>
+      </div>
+
+      <div className="aas-conclusion">
+        <p>
+          At AmzCoz, we combine automation with seasoned strategists to scale brands responsibly—maximizing returns while eliminating wasted ad spend. Our Amazon Advertising Management service is the blueprint for sustainable marketplace growth.
+        </p>
+        <Button
+          variant="primary"
+          size="large"
+          onClick={onBookSession}
+          icon={<FaArrowRight />}
+          iconPosition="right"
+        >
+          Plan My Advertising Roadmap
+        </Button>
+      </div>
+    </div>
+  </section>
+)

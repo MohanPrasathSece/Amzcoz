@@ -138,13 +138,36 @@ const Contact = () => {
                   </motion.div>
                 ))}
               </div>
+            </motion.div>
 
-              {/* Service Regions */}
+            {/* Contact Form */}
+            <motion.div
+              className="contact-form-section"
+              initial={{ opacity: 0, x: 30 }}
+              animate={formInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="form-container">
+                <div className="form-header">
+                  <h2>Request Your Free Amazon Brand Audit</h2>
+                  <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                </div>
+                <LeadForm variant="default" />
+              </div>
+            </motion.div>
+
+            {/* Service Regions & Benefits */}
+            <motion.div
+              className="contact-extras"
+              initial={{ opacity: 0, y: 30 }}
+              animate={formInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               <motion.div
                 className="service-regions"
                 initial={{ opacity: 0, y: 20 }}
                 animate={formInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <h3>We Serve Globally</h3>
                 <div className="regions-grid">
@@ -162,42 +185,30 @@ const Contact = () => {
                 </div>
               </motion.div>
 
-              {/* Benefits */}
               <motion.div
                 className="contact-benefits"
                 initial={{ opacity: 0, y: 20 }}
                 animate={formInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 }}
+                transition={{ duration: 0.6, delay: 0.35 }}
               >
+                <span className="benefits-eyebrow">Included In Every Session</span>
                 <h3>What You'll Get</h3>
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="benefit-item">
-                    <div className="benefit-icon">
-                      <benefit.icon />
+                <p className="benefits-subtitle">Actionable deliverables designed to unlock marketplace growth from day one.</p>
+                <div className="benefit-list">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="benefit-card">
+                      <div className="benefit-icon">
+                        <benefit.icon />
+                      </div>
+                      <div className="benefit-content">
+                        <h4>{benefit.title}</h4>
+                        <p>{benefit.description}</p>
+                      </div>
+                      <div className="benefit-index">0{index + 1}</div>
                     </div>
-                    <div className="benefit-content">
-                      <h4>{benefit.title}</h4>
-                      <p>{benefit.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Contact Form */}
-            <motion.div
-              className="contact-form-section"
-              initial={{ opacity: 0, x: 30 }}
-              animate={formInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="form-container">
-                <div className="form-header">
-                  <h2>Request Your Free Amazon Brand Audit</h2>
-                  <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                  ))}
                 </div>
-                <LeadForm variant="default" />
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>

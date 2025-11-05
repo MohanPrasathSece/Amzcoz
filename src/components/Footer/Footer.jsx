@@ -26,7 +26,11 @@ const Footer = () => {
   const socialLinks = [
     { icon: FaLinkedin, url: '#', label: 'LinkedIn' },
     { icon: FaTwitter, url: '#', label: 'Twitter' },
-    { icon: FaFacebook, url: '#', label: 'Facebook' },
+    {
+      icon: FaFacebook,
+      url: 'https://www.facebook.com/profile.php?id=61583302677569',
+      label: 'Facebook',
+    },
     { icon: FaInstagram, url: '#', label: 'Instagram' },
   ]
 
