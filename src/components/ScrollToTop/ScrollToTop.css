@@ -24,10 +24,6 @@
 
 @media (max-width: 768px) {
   .scroll-to-top {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 45px;
-    height: 45px;
-    font-size: 1.1rem;
+    display: none;
   }
 }

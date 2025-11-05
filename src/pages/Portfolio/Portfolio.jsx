@@ -20,6 +20,9 @@ const Portfolio = () => {
     { id: 6, name: 'Magic Paints', logo: '/images/brands/magic_paints.jpg' },
     { id: 7, name: 'Saukhyam', logo: '/images/brands/saukhyam.jpg' },
     { id: 8, name: 'Wit Blox', logo: '/images/brands/wit_blox.jpg' },
+    { id: 9, name: 'Innovative Edge', logo: '/images/brands/innovative_edge.png' },
+    { id: 10, name: 'Real Nutri Co', logo: '/images/brands/real_nutri_co.png' },
+    { id: 11, name: 'Tresa', logo: '/images/brands/tresa.jpg' },
   ]
 
   const reports = [
