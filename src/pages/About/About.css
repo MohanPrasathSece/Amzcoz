@@ -955,6 +955,50 @@
   margin-bottom: 1.25rem;
 }
 
+/* GST Section */
+.about-gst-section {
+  background: var(--primary-black);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.gst-card {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.gst-card h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-white);
+}
+
+.gst-number {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  margin-bottom: 0.75rem;
+}
+
+.gst-number span {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background: rgba(96, 165, 250, 0.12);
+  padding: 0.4rem 0.85rem;
+  border-radius: 10px;
+  letter-spacing: 0.08em;
+}
+
+.gst-note {
+  color: var(--text-gray);
+  font-size: 1.05rem;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .mission-grid {

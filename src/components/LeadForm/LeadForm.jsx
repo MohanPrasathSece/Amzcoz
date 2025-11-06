@@ -19,6 +19,7 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [formStatus, setFormStatus] = useState(null)
 
   const serviceTypes = [
     'E-commerce Management',
@@ -58,6 +59,9 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }))
     }
+    if (formStatus) {
+      setFormStatus(null)
+    }
   }
 
   const validateForm = () => {
@@ -95,18 +99,45 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
     }
 
     setIsSubmitting(true)
+    setFormStatus(null)
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
     if (!serviceId || !templateId || !publicKey) {
-      alert('Email service is not configured. Please add EmailJS keys to your environment.')
+      setFormStatus({
+        type: 'error',
+        message: 'Email service is not configured. Please add EmailJS keys to your environment.'
+      })
       setIsSubmitting(false)
       return
     }
 
+    const emailBodyLines = [
+      `Hi ${formData.name || 'there'},`,
+      '',
+      "Thanks for booking a strategy session with AMZCOZ! This email confirms we've received your request and our specialists will be in touch within 24 hours to schedule the call.",
+      '',
+      'Booking summary:',
+      `• Service requested: ${formData.serviceType}`,
+      `• Preferred platform: ${formData.platform || 'Not specified'}`,
+      formData.storeLink ? `• Store / website: ${formData.storeLink}` : null,
+      formData.category ? `• Category: ${formData.category}` : null,
+      '',
+      'Project details provided:',
+      formData.challenges ? formData.challenges : 'No additional notes were added.',
+      '',
+      'If you need to make any changes, simply reply to this email or call us at +91 98765 43210.',
+      '',
+      'We look forward to partnering on your Amazon growth!',
+      '',
+      'Best regards,',
+      'Team AMZCOZ'
+    ].filter(Boolean)
+
     const templateParams = {
+      subject: 'AMZCOZ Strategy Session Confirmation',
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
@@ -115,23 +146,13 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
       storeLink: formData.storeLink,
       category: formData.category,
       challenges: formData.challenges,
-      message: `New booking request from ${formData.name}\n\n` +
-        [
-          `Service Type: ${formData.serviceType}`,
-          `Platform: ${formData.platform || 'N/A'}`,
-          `Store/Website: ${formData.storeLink || 'N/A'}`,
-          `Category: ${formData.category || 'N/A'}`,
-          '',
-          'Requirements / Notes:',
-          formData.challenges || 'N/A',
-        ].join('\n')
+      email_body: emailBodyLines.join('\n')
     }
 
     try {
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
 
       setIsSuccess(true)
-      alert('Email sent successfully!')
       setFormData({
         name: '',
         email: '',
@@ -145,7 +166,10 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
       if (onSuccess) onSuccess()
     } catch (err) {
       console.error('Lead form submission failed:', err)
-      alert('Unable to send email right now. Please try again later.')
+      setFormStatus({
+        type: 'error',
+        message: 'Unable to send your request right now. Please try again later.'
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -307,6 +331,12 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
           />
         </div>
       </div>
+
+      {formStatus && (
+        <div className={`form-status form-status-${formStatus.type}`}>
+          {formStatus.message}
+        </div>
+      )}
 
       <div className="form-actions">
         <Button

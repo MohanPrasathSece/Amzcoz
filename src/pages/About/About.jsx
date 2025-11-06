@@ -20,6 +20,7 @@ const About = () => {
   const [missionRef, missionInView] = useInView({ threshold: 0.3, triggerOnce: true })
   const [valuesRef, valuesInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [teamRef, teamInView] = useInView({ threshold: 0.2, triggerOnce: true })
+  const [gstRef, gstInView] = useInView({ threshold: 0.2, triggerOnce: true })
 
   const values = [
     {
@@ -346,6 +347,24 @@ const About = () => {
             <Button variant="primary" size="large" to="/contact">
               Book Strategy Session
             </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* GST Information */}
+      <section className="about-gst-section section-padding" ref={gstRef}>
+        <div className="container">
+          <motion.div
+            className="gst-card"
+            initial={{ opacity: 0, y: 30 }}
+            animate={gstInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>GST Registration Details</h2>
+            <p className="gst-number">
+              GSTIN: <span>27BRBPT9292A1ZJ</span>
+            </p>
+            <p className="gst-note">Registered under Goods and Services Tax, Government of India.</p>
           </motion.div>
         </div>
       </section>
