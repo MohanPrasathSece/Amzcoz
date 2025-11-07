@@ -17,10 +17,12 @@ import Button from '../../components/Button/Button'
 import Modal from '../../components/Modal/Modal'
 import LeadForm from '../../components/LeadForm/LeadForm'
 import MoonGalaxy from '../../components/MoonGalaxy/MoonGalaxy'
+import SuccessPopup from '../../components/SuccessPopup/SuccessPopup'
 import './Home.css'
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [successDetails, setSuccessDetails] = useState(null)
   const [heroRef, heroInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [statsRef, statsInView] = useInView({ threshold: 0.3, triggerOnce: true })
   const [servicesRef, servicesInView] = useInView({ threshold: 0.2, triggerOnce: true })
@@ -291,8 +293,19 @@ const Home = () => {
         title="Get Your Free Consultation"
         size="large"
       >
-        <LeadForm onSuccess={() => setIsModalOpen(false)} />
+        <LeadForm
+          onSuccess={(details) => {
+            setIsModalOpen(false)
+            setSuccessDetails(details)
+          }}
+        />
       </Modal>
+
+      <SuccessPopup
+        isOpen={!!successDetails}
+        submission={successDetails}
+        onClose={() => setSuccessDetails(null)}
+      />
     </div>
   )
 }

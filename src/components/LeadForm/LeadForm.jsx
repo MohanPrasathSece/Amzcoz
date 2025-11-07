@@ -62,6 +62,9 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
     if (formStatus) {
       setFormStatus(null)
     }
+    if (isSuccess) {
+      setIsSuccess(false)
+    }
   }
 
   const validateForm = () => {
@@ -100,6 +103,7 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
 
     setIsSubmitting(true)
     setFormStatus(null)
+    setIsSuccess(false)
 
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
@@ -152,7 +156,16 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
     try {
       await emailjs.send(serviceId, templateId, templateParams, publicKey)
 
-      setIsSuccess(true)
+      const submissionDetails = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        serviceType: formData.serviceType,
+        platform: formData.platform,
+        storeLink: formData.storeLink,
+        category: formData.category,
+      }
+
       setFormData({
         name: '',
         email: '',
@@ -163,7 +176,11 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
         category: '',
         challenges: '',
       })
-      if (onSuccess) onSuccess()
+      if (onSuccess) {
+        onSuccess(submissionDetails)
+      } else {
+        setIsSuccess(true)
+      }
     } catch (err) {
       console.error('Lead form submission failed:', err)
       setFormStatus({

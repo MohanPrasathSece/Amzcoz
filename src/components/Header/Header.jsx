@@ -5,12 +5,14 @@ import { FaBars, FaTimes } from 'react-icons/fa'
 import Button from '../Button/Button'
 import Modal from '../Modal/Modal'
 import LeadForm from '../LeadForm/LeadForm'
+import SuccessPopup from '../SuccessPopup/SuccessPopup'
 import './Header.css'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false)
+  const [successDetails, setSuccessDetails] = useState(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -151,8 +153,19 @@ const Header = () => {
         title="Book Your Free Audit"
         size="large"
       >
-        <LeadForm onSuccess={() => setIsAuditModalOpen(false)} />
+        <LeadForm
+          onSuccess={(details) => {
+            setIsAuditModalOpen(false)
+            setSuccessDetails(details)
+          }}
+        />
       </Modal>
+
+      <SuccessPopup
+        isOpen={!!successDetails}
+        submission={successDetails}
+        onClose={() => setSuccessDetails(null)}
+      />
     </>
   )
 }
