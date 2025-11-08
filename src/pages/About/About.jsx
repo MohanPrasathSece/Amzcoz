@@ -46,10 +46,10 @@ const About = () => {
   ]
 
   const achievements = [
-    { icon: FaUsers, value: '500+', label: 'Clients Served' },
-    { icon: FaChartLine, value: '3x', label: 'Average ROAS' },
-    { icon: FaGlobe, value: '4+', label: 'Countries' },
-    { icon: FaAward, value: '5+', label: 'Years Experience' }
+    { icon: FaUsers, value: '15+', label: 'Brands' },
+    { icon: FaChartLine, value: '2x', label: 'ROAS' },
+    { icon: FaAward, value: '5+', label: 'Years Experience' },
+    { icon: FaCheckCircle, value: '98%', label: 'Client Satisfaction' }
   ]
 
   const whyChoose = [
