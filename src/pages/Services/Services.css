@@ -361,6 +361,51 @@
   padding-top: 4rem;
 }
 
+.aam-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.aam-summary-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  background: rgba(15, 25, 45, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.aam-summary-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: #f8fafc;
+}
+
+.aam-summary-card p {
+  color: rgba(226, 232, 240, 0.72);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.aam-summary-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  background: rgba(21, 31, 55, 0.65);
+}
+
+.aam-feature-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.75rem;
+}
+
+.aam-feature-groups h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #f8fafc;
+}
+
 .aas-section-intro {
   text-align: left;
   max-width: 780px;
@@ -460,6 +505,29 @@
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
+.aas-feature-list--minimal {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.aas-feature-card--minimal {
+  background: rgba(15, 25, 45, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.aas-feature-card--minimal .aas-feature-content h4 {
+  font-size: 1rem;
+  margin: 0;
+  color: #e2e8f0;
+}
+
+.aas-feature-card--minimal .aas-feature-content p {
+  display: none;
+}
+
 .aas-feature-card:hover {
   transform: translateY(-6px);
   border-color: rgba(99, 102, 241, 0.45);
@@ -494,6 +562,27 @@
   color: rgba(148, 163, 184, 0.85);
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+.aam-cta {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: rgba(15, 25, 45, 0.55);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.aam-cta p {
+  flex: 1;
+  min-width: 260px;
+  margin: 0;
+  color: rgba(226, 232, 240, 0.75);
+  line-height: 1.8;
 }
 
 .aas-inline-insight {

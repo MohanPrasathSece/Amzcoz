@@ -54,8 +54,8 @@ const Contact = () => {
   const benefits = [
     {
       icon: FaAmazon,
-      title: 'Free Amazon Brand Audit',
-      description: 'Comprehensive analysis of your current Amazon presence'
+      title: 'Free Growth Audit',
+      description: 'Comprehensive review of your current online presence'
     },
     {
       icon: FaChartLine,
@@ -81,7 +81,7 @@ const Contact = () => {
           >
             <h1>Get in Touch</h1>
             <p className="contact-subtitle">
-              Ready to scale your Amazon business? Request your free brand audit today
+              Ready to grow your business? Request your free consultation today
             </p>
           </motion.div>
         </div>
@@ -149,7 +149,7 @@ const Contact = () => {
             >
               <div className="form-container">
                 <div className="form-header">
-                  <h2>Request Your Free Amazon Brand Audit</h2>
+                  <h2>Request Your Free Consultation</h2>
                   <p>Fill out the form below and we'll get back to you within 24 hours</p>
                 </div>
                 <LeadForm variant="default" />

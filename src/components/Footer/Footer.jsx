@@ -4,6 +4,14 @@ import { motion } from 'framer-motion'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'
 import './Footer.css'
 
+const slugify = (text = '') =>
+  text
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/\+/g, 'plus')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
@@ -15,12 +23,12 @@ const Footer = () => {
   ]
 
   const services = [
-    'Amazon Account Management',
-    'Amazon Advertising (PPC & DSP)',
-    'Brand Store & A+ Content',
-    'Review Management',
-    'Webapp Development',
-    'Social Media Marketing',
+    { name: 'Amazon Account Management', anchor: 'amazon-account-management' },
+    { name: 'Amazon Advertising (PPC & DSP)', anchor: 'amazon-advertising-ppc-dsp' },
+    { name: 'Brand Store & A+ Content', anchor: slugify('A+ Content & Brand Store') },
+    { name: 'Review Management', anchor: slugify('Review & Reputation Management') },
+    { name: 'Webapp Development', anchor: slugify('Webapp Development') },
+    { name: 'Social Media Marketing', anchor: slugify('Social Media Marketing') },
   ]
 
   const socialLinks = [
@@ -100,7 +108,9 @@ const Footer = () => {
               <ul className="footer-links">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <span className="footer-link">{service}</span>
+                    <a className="footer-link" href={`/services#${service.anchor}`}>
+                      {service.name}
+                    </a>
                   </li>
                 ))}
               </ul>

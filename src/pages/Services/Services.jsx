@@ -7,6 +7,7 @@ import {
   FaPalette,
   FaStar,
   FaCode,
+  FaLaptopCode,
   FaGoogle,
   FaFacebook,
   FaInstagram,
@@ -19,6 +20,14 @@ import Modal from '../../components/Modal/Modal'
 import LeadForm from '../../components/LeadForm/LeadForm'
 import SuccessPopup from '../../components/SuccessPopup/SuccessPopup'
 import './Services.css'
+
+const slugify = (text = '') =>
+  text
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/\+/g, 'plus')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
 
 const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -165,7 +174,7 @@ const Services = () => {
     },
     {
       icon: FaCode,
-      title: 'Webapp Development',
+      title: 'Website Development',
       description: 'Modern, performant web applications tailored to your business with scalable architecture.',
       color: '#0EA5E9',
       features: [
@@ -180,6 +189,25 @@ const Services = () => {
         'Design & Architecture',
         'Development & Testing',
         'Deployment & Handover'
+      ]
+    },
+    {
+      icon: FaLaptopCode,
+      title: 'Web Development',
+      description: 'High-converting websites engineered for SEO, speed, and delightful user experiences.',
+      color: '#2563EB',
+      features: [
+        'Corporate & E-commerce Websites',
+        'Headless CMS Integrations',
+        'SEO & Performance Optimization',
+        'Responsive Design Systems',
+        'Analytics & Tracking Setup'
+      ],
+      process: [
+        'Discovery & Goal Alignment',
+        'Wireframing & UI Design',
+        'Development & Quality Assurance',
+        'Launch & Ongoing Support'
       ]
     },
     {
@@ -311,7 +339,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="services-content section-padding">
+      <section className="services-content section-padding" id="all-services">
         <div className="container">
           {services.map((service, index) => (
             <ServiceCard
@@ -438,6 +466,7 @@ const ServiceCard = ({ service, index, onBookSession }) => {
   return (
     <div
       ref={ref}
+      id={slugify(service.title)}
       className="service-detail-card"
     >
       <div className="service-detail-header">
@@ -532,7 +561,7 @@ const FeatureList = ({ features, className = '', minimal = false }) => (
 )
 
 const AmazonAccountManagementSection = ({ onBookSession }) => (
-  <section className="amazon-account-section section-padding">
+  <section className="amazon-account-section section-padding" id="amazon-account-management">
     <div className="container">
       <SectionIntro
         eyebrow="Amazon Account Management"
@@ -614,7 +643,7 @@ const AmazonAccountManagementSection = ({ onBookSession }) => (
 )
 
 const AmazonAdvertisingSection = ({ onBookSession }) => (
-  <section className="amazon-ad-section section-padding">
+  <section className="amazon-ad-section section-padding" id="amazon-advertising-ppc-dsp">
     <div className="container">
       <SectionIntro
         eyebrow="Amazon Advertising Management"
