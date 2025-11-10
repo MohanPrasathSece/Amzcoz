@@ -389,11 +389,26 @@
   background: radial-gradient(circle at top, rgba(96, 165, 250, 0.08) 0%, rgba(0, 0, 0, 0.9) 60%);
 }
 
-.client-report-gallery {
+.client-report-brands {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3rem;
   margin-top: 3rem;
+}
+
+.client-report-brand__title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.02em;
+}
+
+.client-report-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  align-items: stretch;
 }
 
 .client-report-image-button {
@@ -403,6 +418,7 @@
   background: none;
   cursor: pointer;
   display: block;
+  width: 100%;
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -437,12 +453,12 @@
 }
 
 .client-report-image {
-  width: min(720px, 100%);
-  margin: 0 auto;
+  width: 100%;
   border-radius: 18px;
   border: 1px solid rgba(148, 163, 184, 0.15);
   box-shadow: 0 25px 45px rgba(15, 23, 42, 0.35);
   object-fit: cover;
+  display: block;
 }
 
 .image-modal {
@@ -506,8 +522,18 @@
     padding: 4rem 0;
   }
 
+  .client-report-brands {
+    gap: 2.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .client-report-brand__title {
+    margin-bottom: 1.25rem;
+  }
+
   .client-report-gallery {
     gap: 1.75rem;
+    grid-template-columns: 1fr;
   }
 
   .client-report-image-button::after {

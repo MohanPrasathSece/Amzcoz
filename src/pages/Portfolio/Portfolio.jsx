@@ -77,16 +77,38 @@ const Portfolio = () => {
     },
   ]
 
-  const clientReportImages = [
+  const clientReportsByBrand = [
     {
-      id: 'sales',
-      src: '/data/WhatsApp%20Image%202025-11-10%20at%2016.50.21_edfafb01.jpg',
-      alt: 'Client sales performance overview',
+      id: 'client-1',
+      name: 'Client 1',
+      images: [
+        {
+          id: 'client1-sales',
+          src: '/data/brand1_1.jpg',
+          alt: 'Client 1 marketplace sales growth dashboard',
+        },
+        {
+          id: 'client1-traffic',
+          src: '/data/brand1_2.jpg',
+          alt: 'Client 1 customer traffic performance overview',
+        },
+      ],
     },
     {
-      id: 'traffic',
-      src: '/data/WhatsApp%20Image%202025-11-10%20at%2017.07.49_736a6a64.jpg',
-      alt: 'Client traffic analytics dashboard',
+      id: 'client-2',
+      name: 'Client 2',
+      images: [
+        {
+          id: 'client2-sales',
+          src: '/data/brand2_1.jpg',
+          alt: 'Client 2 sales momentum dashboard',
+        },
+        {
+          id: 'client2-traffic',
+          src: '/data/brand2_2.jpg',
+          alt: 'Client 2 audience engagement analytics',
+        },
+      ],
     },
   ]
 
@@ -414,23 +436,38 @@ const Portfolio = () => {
             <p>Marketplace performance insights showcasing sales momentum and audience engagement.</p>
           </motion.div>
 
-          <div className="client-report-gallery">
-            {clientReportImages.map((image, index) => (
-              <motion.button
-                key={image.id}
-                type="button"
-                className="client-report-image-button"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                onClick={() => setActiveImage(image)}
-                aria-label={`View ${image.alt}`}
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <img src={image.src} alt={image.alt} className="client-report-image" />
-              </motion.button>
+          <div className="client-report-brands">
+            {clientReportsByBrand.map((brand, brandIndex) => (
+              <div className="client-report-brand" key={brand.id}>
+                <motion.h3
+                  className="client-report-brand__title"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: brandIndex * 0.1 }}
+                >
+                  {brand.name}
+                </motion.h3>
+                <div className="client-report-gallery">
+                  {brand.images.map((image, index) => (
+                    <motion.button
+                      key={image.id}
+                      type="button"
+                      className="client-report-image-button"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.4 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      onClick={() => setActiveImage(image)}
+                      aria-label={`View ${image.alt}`}
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <img src={image.src} alt={image.alt} className="client-report-image" />
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
