@@ -25,7 +25,8 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
     'E-commerce Management',
     'Advertising & Marketing',
     'Brand Enhancement',
-    'Web Development',
+    'Website Development',
+    'E-commerce Website',
     'Social Media Marketing',
     'Other',
   ]

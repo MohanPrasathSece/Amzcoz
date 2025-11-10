@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FaBuilding, FaChartLine, FaDownload, FaMedal, FaShoppingBag, FaRocket } from 'react-icons/fa'
@@ -10,6 +10,29 @@ const Portfolio = () => {
   const [brandsRef, brandsInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [analyticsRef, analyticsInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [reportsRef, reportsInView] = useInView({ threshold: 0.2, triggerOnce: true })
+  const [activeImage, setActiveImage] = useState(null)
+
+  const closeModal = useCallback(() => setActiveImage(null), [])
+
+  useEffect(() => {
+    if (!activeImage) return
+
+    const handler = (event) => {
+      if (event.key === 'Escape') {
+        closeModal()
+      }
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    window.addEventListener('keydown', handler)
+
+    return () => {
+      window.removeEventListener('keydown', handler)
+      document.body.style.overflow = previousOverflow
+    }
+  }, [activeImage, closeModal])
 
   const brands = [
     { id: 1, name: 'Akai', logo: '/images/brands/akai.jpg' },
@@ -24,6 +47,7 @@ const Portfolio = () => {
     { id: 10, name: 'Real Nutri Co', logo: '/images/brands/real_nutri_co.png' },
     { id: 11, name: 'Tresa', logo: '/images/brands/tresa.jpg' },
     { id: 12, name: 'Veg O Vegan', logo: '/images/brands/veg_O_vegan.png' },
+    { id: 13, name: 'Zora', logo: '/images/brands/ZORA_Final_Logo.jpg' },
   ]
 
   const reports = [
@@ -50,6 +74,19 @@ const Portfolio = () => {
       date: 'October 2024',
       fileUrl: '/reports/advertising-roi.pdf',
       metrics: ['4x ROAS', '35% CTR Increase', '₹50L+ Ad Spend']
+    },
+  ]
+
+  const clientReportImages = [
+    {
+      id: 'sales',
+      src: '/data/WhatsApp%20Image%202025-11-10%20at%2016.50.21_edfafb01.jpg',
+      alt: 'Client sales performance overview',
+    },
+    {
+      id: 'traffic',
+      src: '/data/WhatsApp%20Image%202025-11-10%20at%2017.07.49_736a6a64.jpg',
+      alt: 'Client traffic analytics dashboard',
     },
   ]
 
@@ -364,6 +401,58 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
+      <section className="client-report-section section-padding">
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>Client Sales &amp; Traffic Report</h2>
+            <p>Marketplace performance insights showcasing sales momentum and audience engagement.</p>
+          </motion.div>
+
+          <div className="client-report-gallery">
+            {clientReportImages.map((image, index) => (
+              <motion.button
+                key={image.id}
+                type="button"
+                className="client-report-image-button"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                onClick={() => setActiveImage(image)}
+                aria-label={`View ${image.alt}`}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <img src={image.src} alt={image.alt} className="client-report-image" />
+              </motion.button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {activeImage && (
+        <div className="image-modal" onClick={closeModal} role="dialog" aria-modal="true">
+          <motion.div
+            className="image-modal__content"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.25 }}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button type="button" className="image-modal__close" onClick={closeModal}>
+              Close
+            </button>
+            <img src={activeImage.src} alt={activeImage.alt} className="image-modal__image" />
+            <span className="image-modal__caption">{activeImage.alt}</span>
+          </motion.div>
+        </div>
+      )}
 
       {/* Capabilities Section */}
       <section className="capabilities-section section-padding">

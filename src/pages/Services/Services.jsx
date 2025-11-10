@@ -175,13 +175,13 @@ const Services = () => {
     {
       icon: FaCode,
       title: 'Website Development',
-      description: 'Modern, performant web applications tailored to your business with scalable architecture.',
+      description: 'Corporate and marketing websites crafted for brand storytelling, speed, and responsive experiences.',
       color: '#0EA5E9',
       features: [
-        'React-based Frontends',
-        'API Integration',
-        'Authentication & Security',
-        'Responsive UI/UX',
+        'Corporate & Portfolio Websites',
+        'Custom UI/UX Design Systems',
+        'CMS & API Integrations',
+        'Accessibility & SEO Enhancements',
         'Performance Optimization'
       ],
       process: [
@@ -193,15 +193,15 @@ const Services = () => {
     },
     {
       icon: FaLaptopCode,
-      title: 'Web Development',
-      description: 'High-converting websites engineered for SEO, speed, and delightful user experiences.',
+      title: 'E-commerce Website',
+      description: 'Conversion-focused storefronts with secure checkout, product management, and growth-ready integrations.',
       color: '#2563EB',
       features: [
-        'Corporate & E-commerce Websites',
-        'Headless CMS Integrations',
-        'SEO & Performance Optimization',
-        'Responsive Design Systems',
-        'Analytics & Tracking Setup'
+        'Shopify / WooCommerce Builds',
+        'Product Catalog & Inventory Setup',
+        'Payment & Logistics Integrations',
+        'Conversion Rate Optimization',
+        'Analytics & Marketing Automation'
       ],
       process: [
         'Discovery & Goal Alignment',

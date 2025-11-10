@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { 
-  FaAmazon, 
-  FaChartLine, 
-  FaBullhorn, 
-  FaStar, 
-  FaUsers, 
+import {
+  FaAmazon,
+  FaChartLine,
+  FaBullhorn,
+  FaStar,
+  FaUsers,
   FaTrophy,
   FaArrowRight,
   FaQuoteLeft,
   FaCode,
+  FaLaptopCode,
   FaFacebook
 } from 'react-icons/fa'
 import Button from '../../components/Button/Button'
@@ -56,9 +57,15 @@ const Home = () => {
     },
     {
       icon: FaCode,
-      title: 'Webapp Development',
-      description: 'Modern, responsive web applications tailored to your business goals.',
-      features: ['React Frontend', 'API Integration', 'Authentication', 'Performance']
+      title: 'Website Development',
+      description: 'Corporate and marketing websites crafted for brand storytelling, speed, and responsive experiences.',
+      features: ['Corporate Websites', 'Custom UI/UX', 'CMS Integrations', 'SEO Enhancements']
+    },
+    {
+      icon: FaLaptopCode,
+      title: 'E-commerce Website',
+      description: 'Conversion-focused storefronts with secure checkout, product management, and growth-ready integrations.',
+      features: ['Shopify / WooCommerce', 'Catalog Setup', 'Payments & Logistics', 'Conversion Optimization']
     },
     {
       icon: FaFacebook,
