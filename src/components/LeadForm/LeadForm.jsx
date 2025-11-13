@@ -141,17 +141,38 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
       'Team AMZCOZ'
     ].filter(Boolean)
 
+    const defaultFromName = import.meta.env.VITE_EMAILJS_FROM_NAME || 'AMZCOZ Team'
+    const defaultFromEmail = import.meta.env.VITE_EMAILJS_FROM_EMAIL || 'adnan@amzcoz.com'
+    const replyToEmail = import.meta.env.VITE_EMAILJS_REPLY_TO || defaultFromEmail
+    const ccEmails = import.meta.env.VITE_EMAILJS_CC
+    const bccEmails = import.meta.env.VITE_EMAILJS_BCC
+    const messageContent = emailBodyLines.join('\n')
+
     const templateParams = {
       subject: 'AMZCOZ Strategy Session Confirmation',
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      serviceType: formData.serviceType,
-      platform: formData.platform,
-      storeLink: formData.storeLink,
-      category: formData.category,
-      challenges: formData.challenges,
-      email_body: emailBodyLines.join('\n')
+      content: messageContent,
+      message: messageContent,
+      email_body: messageContent,
+      to_email: formData.email,
+      customer_name: formData.name,
+      customer_email: formData.email,
+      customer_phone: formData.phone,
+      service_type: formData.serviceType,
+      preferred_platform: formData.platform || 'Not specified',
+      store_link: formData.storeLink || 'Not provided',
+      project_category: formData.category || 'Not specified',
+      additional_notes: formData.challenges || 'No additional notes were added.',
+      from_name: defaultFromName,
+      from_email: defaultFromEmail,
+      reply_to: replyToEmail
+    }
+
+    if (ccEmails) {
+      templateParams.cc = ccEmails
+    }
+
+    if (bccEmails) {
+      templateParams.bcc = bccEmails
     }
 
     try {
