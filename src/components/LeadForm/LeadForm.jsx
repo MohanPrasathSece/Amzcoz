@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Button from '../Button/Button'
 import './LeadForm.css'
-import emailjs from '@emailjs/browser'
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
 
 const LeadForm = ({ onSuccess, variant = 'default' }) => {
   const [formData, setFormData] = useState({
@@ -106,77 +107,29 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
     setFormStatus(null)
     setIsSuccess(false)
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-
-    if (!serviceId || !templateId || !publicKey) {
-      setFormStatus({
-        type: 'error',
-        message: 'Email service is not configured. Please add EmailJS keys to your environment.'
-      })
-      setIsSubmitting(false)
-      return
-    }
-
-    const emailBodyLines = [
-      `Hi ${formData.name || 'there'},`,
-      '',
-      "Thanks for booking a strategy session with AMZCOZ! This email confirms we've received your request and our specialists will be in touch within 24 hours to schedule the call.",
-      '',
-      'Booking summary:',
-      `• Service requested: ${formData.serviceType}`,
-      `• Preferred platform: ${formData.platform || 'Not specified'}`,
-      formData.storeLink ? `• Store / website: ${formData.storeLink}` : null,
-      formData.category ? `• Category: ${formData.category}` : null,
-      '',
-      'Project details provided:',
-      formData.challenges ? formData.challenges : 'No additional notes were added.',
-      '',
-      'If you need to make any changes, simply reply to this email or call us at +91 98765 43210.',
-      '',
-      'We look forward to partnering on your Amazon growth!',
-      '',
-      'Best regards,',
-      'Team AMZCOZ'
-    ].filter(Boolean)
-
-    const defaultFromName = import.meta.env.VITE_EMAILJS_FROM_NAME || 'AMZCOZ Team'
-    const defaultFromEmail = import.meta.env.VITE_EMAILJS_FROM_EMAIL || 'adnan@amzcoz.com'
-    const replyToEmail = import.meta.env.VITE_EMAILJS_REPLY_TO || defaultFromEmail
-    const ccEmails = import.meta.env.VITE_EMAILJS_CC
-    const bccEmails = import.meta.env.VITE_EMAILJS_BCC
-    const messageContent = emailBodyLines.join('\n')
-
-    const templateParams = {
-      subject: 'AMZCOZ Strategy Session Confirmation',
-      content: messageContent,
-      message: messageContent,
-      email_body: messageContent,
-      to_email: formData.email,
-      customer_name: formData.name,
-      customer_email: formData.email,
-      customer_phone: formData.phone,
-      service_type: formData.serviceType,
-      preferred_platform: formData.platform || 'Not specified',
-      store_link: formData.storeLink || 'Not provided',
-      project_category: formData.category || 'Not specified',
-      additional_notes: formData.challenges || 'No additional notes were added.',
-      from_name: defaultFromName,
-      from_email: defaultFromEmail,
-      reply_to: replyToEmail
-    }
-
-    if (ccEmails) {
-      templateParams.cc = ccEmails
-    }
-
-    if (bccEmails) {
-      templateParams.bcc = bccEmails
-    }
-
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      const response = await fetch(`${API_BASE_URL}/api/contact`.replace(/\/api/, '/api'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          serviceType: formData.serviceType,
+          platform: formData.platform,
+          storeLink: formData.storeLink,
+          category: formData.category,
+          challenges: formData.challenges,
+        }),
+      })
+
+      const payload = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(payload?.error || 'Unable to send your request right now.')
+      }
 
       const submissionDetails = {
         name: formData.name,
@@ -207,7 +160,7 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
       console.error('Lead form submission failed:', err)
       setFormStatus({
         type: 'error',
-        message: 'Unable to send your request right now. Please try again later.'
+        message: err.message || 'Unable to send your request right now. Please try again later.'
       })
     } finally {
       setIsSubmitting(false)

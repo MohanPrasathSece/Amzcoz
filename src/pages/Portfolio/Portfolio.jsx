@@ -84,7 +84,7 @@ const Portfolio = () => {
       images: [
         {
           id: 'client1-sales',
-          src: '/data/brand1_1.jpg',
+          src: '/data/brand1-1.jpg',
           alt: 'Client 1 marketplace sales growth dashboard',
         },
         {
@@ -107,6 +107,22 @@ const Portfolio = () => {
           id: 'client2-traffic',
           src: '/data/brand2_2.jpg',
           alt: 'Client 2 audience engagement analytics',
+        },
+      ],
+    },
+    {
+      id: 'client-3',
+      name: 'Client 3',
+      images: [
+        {
+          id: 'client3-sales',
+          src: '/data/brand3_1.jpg',
+          alt: 'Client 3 revenue performance dashboard',
+        },
+        {
+          id: 'client3-traffic',
+          src: '/data/brand3_2.jpg',
+          alt: 'Client 3 customer acquisition analytics',
         },
       ],
     },
