@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaBuilding, FaChartLine, FaDownload, FaMedal, FaShoppingBag, FaRocket } from 'react-icons/fa'
+import { FaBuilding, FaChartLine, FaMedal, FaShoppingBag, FaRocket } from 'react-icons/fa'
 import { LuSparkles } from 'react-icons/lu'
 import { PiChartLineUpDuotone } from 'react-icons/pi'
 import './Portfolio.css'
@@ -9,7 +9,6 @@ import './Portfolio.css'
 const Portfolio = () => {
   const [brandsRef, brandsInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [analyticsRef, analyticsInView] = useInView({ threshold: 0.2, triggerOnce: true })
-  const [reportsRef, reportsInView] = useInView({ threshold: 0.2, triggerOnce: true })
   const [activeImage, setActiveImage] = useState(null)
 
   const closeModal = useCallback(() => setActiveImage(null), [])
@@ -48,33 +47,6 @@ const Portfolio = () => {
     { id: 11, name: 'Tresa', logo: '/images/brands/tresa.jpg' },
     { id: 12, name: 'Veg O Vegan', logo: '/images/brands/veg_O_vegan.png' },
     { id: 13, name: 'Zora', logo: '/images/brands/ZORA_Final_Logo.jpg' },
-  ]
-
-  const reports = [
-    {
-      id: 1,
-      title: 'Q4 2024 Performance Report',
-      description: 'Comprehensive analysis of marketplace performance across Amazon, Flipkart, and Myntra',
-      date: 'December 2024',
-      fileUrl: '/reports/q4-2024.pdf',
-      metrics: ['3x ROAS', '45% Growth', '500+ SKUs']
-    },
-    {
-      id: 2,
-      title: 'Brand Growth Case Study',
-      description: 'Success story: From startup to marketplace leader in 12 months',
-      date: 'November 2024',
-      fileUrl: '/reports/case-study-2024.pdf',
-      metrics: ['2.5x Revenue', '60% Market Share', '10+ Platforms']
-    },
-    {
-      id: 3,
-      title: 'Advertising ROI Analysis',
-      description: 'Deep dive into PPC and DSP campaign performance metrics',
-      date: 'October 2024',
-      fileUrl: '/reports/advertising-roi.pdf',
-      metrics: ['4x ROAS', '35% CTR Increase', '₹50L+ Ad Spend']
-    },
   ]
 
   const clientReportsByBrand = [
@@ -381,59 +353,6 @@ const Portfolio = () => {
                     </div>
                   ))}
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="reports-section section-padding" ref={reportsRef}>
-        <div className="container">
-          <motion.div
-            className="section-header"
-            initial={{ opacity: 0, y: 20 }}
-            animate={reportsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <h2>Business Reports & Case Studies</h2>
-            <p>Insights and results from our e-commerce campaigns</p>
-          </motion.div>
-
-          <div className="reports-grid">
-            {reports.map((report, index) => (
-              <motion.div
-                key={report.id}
-                className="report-card"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-                animate={reportsInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                whileHover={{ y: -10 }}
-              >
-                <div className="report-header">
-                  <div className="report-icon">
-                    <FaChartLine />
-                  </div>
-                  <span className="report-date">{report.date}</span>
-                </div>
-                <h3>{report.title}</h3>
-                <p className="report-description">{report.description}</p>
-                <div className="report-metrics">
-                  {report.metrics.map((metric, idx) => (
-                    <span key={idx} className="metric-badge">{metric}</span>
-                  ))}
-                </div>
-                <a 
-                  href={report.fileUrl} 
-                  className="report-download"
-                  download
-                  onClick={(e) => {
-                    e.preventDefault()
-                    alert('Report download will be available soon. Please contact us for access.')
-                  }}
-                >
-                  <FaDownload />
-                  Download Report
-                </a>
               </motion.div>
             ))}
           </div>

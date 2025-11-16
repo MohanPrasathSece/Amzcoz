@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import Button from '../Button/Button'
 import './LeadForm.css'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '')
 
 const LeadForm = ({ onSuccess, variant = 'default' }) => {
   const [formData, setFormData] = useState({
@@ -108,7 +108,7 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
     setIsSuccess(false)
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/contact`.replace(/\/api/, '/api'), {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
