@@ -384,6 +384,90 @@
   box-shadow: 0 10px 25px rgba(96, 165, 250, 0.4);
 }
 
+/* Samples Section */
+.samples-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.08) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+.samples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.sample-card {
+  position: relative;
+  padding: 2.5rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 45px rgba(9, 14, 30, 0.35);
+  backdrop-filter: blur(16px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-align: center;
+}
+
+.sample-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 35px 65px rgba(37, 99, 235, 0.35);
+  border-color: rgba(96, 165, 250, 0.45);
+}
+
+.sample-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(37, 99, 235, 0.3));
+  color: #60a5fa;
+  font-size: 2.5rem;
+}
+
+.sample-card h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.sample-card p {
+  color: rgba(226, 232, 240, 0.75);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+.download-btn svg {
+  font-size: 1rem;
+}
+
 .client-report-section {
   padding: 5rem 0;
   background: radial-gradient(circle at top, rgba(96, 165, 250, 0.08) 0%, rgba(0, 0, 0, 0.9) 60%);
@@ -684,7 +768,8 @@
 
   .reports-grid,
   .results-grid,
-  .capabilities-grid {
+  .capabilities-grid,
+  .samples-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -700,7 +785,8 @@
   .report-card,
   .brand-card,
   .result-card,
-  .capability-card {
+  .capability-card,
+  .sample-card {
     padding: 2rem;
   }
 
@@ -773,6 +859,29 @@
 
   .result-card {
     padding: 1.75rem;
+  }
+
+  .sample-card {
+    padding: 1.75rem;
+  }
+
+  .sample-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .sample-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .sample-card p {
+    font-size: 0.9rem;
+  }
+
+  .download-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
   }
 
   .result-icon {

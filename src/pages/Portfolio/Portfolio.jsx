@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaBuilding, FaChartLine, FaMedal, FaShoppingBag, FaRocket } from 'react-icons/fa'
+import { FaBuilding, FaChartLine, FaMedal, FaShoppingBag, FaRocket, FaImage, FaTshirt, FaDownload } from 'react-icons/fa'
 import { LuSparkles } from 'react-icons/lu'
 import { PiChartLineUpDuotone } from 'react-icons/pi'
 import './Portfolio.css'
@@ -355,6 +355,74 @@ const Portfolio = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Samples Section */}
+      <section className="samples-section section-padding">
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>Samples</h2>
+            <p>Explore our design work across different mediums and styles</p>
+          </motion.div>
+
+          <div className="samples-grid">
+            <motion.div
+              className="sample-card"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="sample-icon">
+                <FaChartLine />
+              </div>
+              <h3>Amazon Infographics</h3>
+              <p>Professional infographics designed for Amazon product listings and brand storytelling</p>
+              <button className="download-btn" onClick={() => window.open('https://drive.google.com/drive/folders/1EBrYSMBhlQXhMgg5r_gMj9teoFGyrU26?usp=sharing', '_blank')}>
+                <FaDownload />
+                Download Sample
+              </button>
+            </motion.div>
+
+            <motion.div
+              className="sample-card"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="sample-icon">
+                <FaImage />
+              </div>
+              <h3>Posters</h3>
+              <p>Eye-catching poster designs for marketing campaigns and promotional materials</p>
+              <button className="download-btn" onClick={() => window.open('#', '_blank')}>
+                <FaDownload />
+                Download Sample
+              </button>
+            </motion.div>
+
+            <motion.div
+              className="sample-card"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="sample-icon">
+                <FaTshirt />
+              </div>
+              <h3>Hoodie Graphics Design</h3>
+              <p>Custom hoodie and apparel graphics that make your brand stand out</p>
+              <button className="download-btn" onClick={() => window.open('https://drive.google.com/drive/folders/1vQj_Um6La3lKAK-GSxUZqM-iS0NDsj-W?usp=sharing', '_blank')}>
+                <FaDownload />
+                Download Sample
+              </button>
+            </motion.div>
           </div>
         </div>
       </section>
