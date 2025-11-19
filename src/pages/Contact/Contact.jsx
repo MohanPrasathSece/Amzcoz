@@ -45,10 +45,10 @@ const Contact = () => {
   ]
 
   const serviceRegions = [
-    { icon: FaGlobe, name: 'India', flag: '🇮🇳' },
-    { icon: FaGlobe, name: 'USA', flag: '🇺🇸' },
-    { icon: FaGlobe, name: 'UAE', flag: '🇦🇪' },
-    { icon: FaGlobe, name: 'UK', flag: '🇬🇧' }
+    { icon: FaGlobe, name: 'India', flagSrc: '/images/flags/india.svg', flagAlt: 'Flag of India' },
+    { icon: FaGlobe, name: 'USA', flagSrc: '/images/flags/usa.svg', flagAlt: 'Flag of the United States' },
+    { icon: FaGlobe, name: 'UAE', flagSrc: '/images/flags/uae.svg', flagAlt: 'Flag of the United Arab Emirates' },
+    { icon: FaGlobe, name: 'UK', flagSrc: '/images/flags/uk.svg', flagAlt: 'Flag of the United Kingdom' }
   ]
 
   const benefits = [
@@ -178,7 +178,13 @@ const Contact = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <span className="region-flag">{region.flag}</span>
+                      <span className="region-flag">
+                        <img
+                          src={region.flagSrc}
+                          alt={region.flagAlt}
+                          className="region-flag-image"
+                        />
+                      </span>
                       <span className="region-name">{region.name}</span>
                     </motion.div>
                   ))}
@@ -231,14 +237,14 @@ const Contact = () => {
                   <div className="feature-number">01</div>
                   <div className="feature-content">
                     <h3>Proven Track Record</h3>
-                    <p>500+ successful clients with an average 3x ROAS uplift</p>
+                    <p>15 successful clients with an average 3x ROAS uplift</p>
                   </div>
                 </div>
                 <div className="additional-feature">
                   <div className="feature-number">02</div>
                   <div className="feature-content">
                     <h3>Expert Team</h3>
-                    <p>Certified Amazon specialists with 5+ years of experience</p>
+                    <p>Certified Amazon specialists with 9+ years of experience</p>
                   </div>
                 </div>
                 <div className="additional-feature">

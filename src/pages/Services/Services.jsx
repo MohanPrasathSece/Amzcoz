@@ -329,7 +329,7 @@ const Services = () => {
               <div className="header-stat">
                 <FaStar />
                 <div>
-                  <div className="stat-value">500+</div>
+                  <div className="stat-value">15</div>
                   <div className="stat-label">Happy Clients</div>
                 </div>
               </div>
@@ -371,12 +371,12 @@ const Services = () => {
               {
                 icon: FaChartLine,
                 title: 'Proven Results',
-                description: 'Track record of 3x ROAS uplift and consistent growth for 500+ clients'
+                description: 'Track record of 3x ROAS uplift and consistent growth for 15 clients'
               },
               {
                 icon: FaStar,
                 title: 'Expert Team',
-                description: '5+ years of Amazon expertise with certified professionals'
+                description: '9+ years of Amazon expertise with certified professionals'
               },
               {
                 icon: FaCheck,

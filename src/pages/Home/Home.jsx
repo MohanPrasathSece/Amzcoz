@@ -226,34 +226,20 @@ const Home = () => {
               <motion.div
                 key={index}
                 className="testimonial-card"
-                initial={{ opacity: 0, x: 50 }}
-                animate={testimonialsInView ? { opacity: 1, x: 0 } : {}}
+                initial={{ opacity: 0, y: 16 }}
+                animate={testimonialsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ y: -10, scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                whileHover={{ y: -6 }}
               >
-                <div className="testimonial-header">
-                  <div className="testimonial-quote-mark">“</div>
-                  <div className="testimonial-meta">
-                    <div className="testimonial-rating">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <FaStar key={i} />
-                      ))}
-                    </div>
-                    <span className="testimonial-label">Client Success Story</span>
-                  </div>
+                <div className="testimonial-quote-icon">
+                  <FaQuoteLeft />
                 </div>
                 <p className="testimonial-text">{testimonial.text}</p>
-                <div className="testimonial-footer">
-                  <div className="testimonial-author">
-                    <div className="author-avatar">{testimonial.image}</div>
-                    <div className="author-info">
-                      <div className="author-name">{testimonial.name}</div>
-                      <div className="author-company">{testimonial.company}</div>
-                    </div>
-                  </div>
-                  <div className="testimonial-company-badge">
-                    <span className="badge-dot" />
-                    <span>Verified Partner</span>
+                <div className="testimonial-author-row">
+                  <div className="author-avatar">{testimonial.image}</div>
+                  <div className="author-info">
+                    <div className="author-name">{testimonial.name}</div>
+                    <div className="author-company">{testimonial.company}</div>
                   </div>
                 </div>
               </motion.div>
