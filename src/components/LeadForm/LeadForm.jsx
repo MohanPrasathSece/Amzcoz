@@ -57,7 +57,14 @@ const LeadForm = ({ onSuccess, variant = 'default' }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
+
+    // Automatically add "https://" if the user omits it in the storeLink field
+    if (name === 'storeLink' && value && !/^https?:\/\//i.test(value)) {
+      setFormData(prev => ({ ...prev, [name]: `https://${value}` }))
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }))
+    }
+
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }))
     }
