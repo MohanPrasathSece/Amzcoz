@@ -13,6 +13,7 @@ import {
   FaCheckCircle
 } from 'react-icons/fa'
 import Button from '../../components/Button/Button'
+import SEO from '../../components/SEO/SEO'
 import './About.css'
 
 const About = () => {
@@ -70,6 +71,12 @@ const About = () => {
 
   return (
     <div className="about-page">
+      <SEO
+        title="About AMZCOZ - Your Trusted E-commerce Growth Partner"
+        description="Learn about AMZCOZ, your trusted partner for Amazon account management and e-commerce growth. 5+ years of experience, 15+ brands scaled, 98% client satisfaction. Certified Amazon specialists."
+        keywords="about amzcoz, e-commerce experts, amazon specialists, certified amazon agency, marketplace consultants, ppc experts, e-commerce consultants, amazon certified"
+        canonical="/about"
+      />
       {/* Header Section */}
       <section className="about-header" ref={headerRef}>
         <div className="about-header-background">
@@ -106,8 +113,8 @@ const About = () => {
               </div>
               <h2>Our Mission</h2>
               <p>
-                To empower businesses of all sizes to achieve exceptional growth on Amazon through 
-                data-driven strategies, expert management, and unwavering commitment to client success. 
+                To empower businesses of all sizes to achieve exceptional growth on Amazon through
+                data-driven strategies, expert management, and unwavering commitment to client success.
                 We believe every brand deserves the opportunity to thrive in the competitive e-commerce landscape.
               </p>
             </motion.div>
@@ -123,8 +130,8 @@ const About = () => {
               </div>
               <h2>Our Vision</h2>
               <p>
-                To become the most trusted and results-oriented Amazon growth partner globally, 
-                known for transforming businesses through innovative strategies, transparent practices, 
+                To become the most trusted and results-oriented Amazon growth partner globally,
+                known for transforming businesses through innovative strategies, transparent practices,
                 and measurable results that exceed expectations.
               </p>
             </motion.div>
@@ -215,7 +222,7 @@ const About = () => {
             >
               <h2>Why Choose AMZCOZ?</h2>
               <p className="why-choose-intro">
-                We're not just another Amazon agency. We're your growth partners, 
+                We're not just another Amazon agency. We're your growth partners,
                 committed to your success with proven strategies and transparent practices.
               </p>
 
@@ -293,9 +300,9 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p>
-              Our team consists of certified Amazon specialists, PPC experts, content creators, 
-              and e-commerce strategists with years of hands-on experience. We stay updated with 
-              the latest Amazon policies, algorithm changes, and best practices to ensure your 
+              Our team consists of certified Amazon specialists, PPC experts, content creators,
+              and e-commerce strategists with years of hands-on experience. We stay updated with
+              the latest Amazon policies, algorithm changes, and best practices to ensure your
               business stays ahead of the competition.
             </p>
           </motion.div>

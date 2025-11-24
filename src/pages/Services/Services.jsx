@@ -19,6 +19,7 @@ import Button from '../../components/Button/Button'
 import Modal from '../../components/Modal/Modal'
 import LeadForm from '../../components/LeadForm/LeadForm'
 import SuccessPopup from '../../components/SuccessPopup/SuccessPopup'
+import SEO from '../../components/SEO/SEO'
 import './Services.css'
 
 const slugify = (text = '') =>
@@ -304,6 +305,12 @@ const Services = () => {
 
   return (
     <div className="services-page">
+      <SEO
+        title="Our Services - Amazon Management, PPC & E-commerce Solutions"
+        description="Complete Amazon account management, PPC advertising, brand enhancement, website development & social media marketing. Expert e-commerce solutions for Amazon, Flipkart, Myntra & more."
+        keywords="amazon management services, amazon ppc advertising, e-commerce solutions, brand enhancement, flipkart management, myntra services, social media marketing, website development, amazon dsp, product listing optimization"
+        canonical="/services"
+      />
       {/* Header Section */}
       <section className="services-header" ref={headerRef}>
         <div className="services-header-background">

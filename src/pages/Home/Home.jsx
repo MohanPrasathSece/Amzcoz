@@ -19,6 +19,7 @@ import Modal from '../../components/Modal/Modal'
 import LeadForm from '../../components/LeadForm/LeadForm'
 import MoonGalaxy from '../../components/MoonGalaxy/MoonGalaxy'
 import SuccessPopup from '../../components/SuccessPopup/SuccessPopup'
+import SEO from '../../components/SEO/SEO'
 import './Home.css'
 
 const Home = () => {
@@ -101,6 +102,12 @@ const Home = () => {
 
   return (
     <div className="home">
+      <SEO
+        title="AMZCOZ - Amazon Account Management & E-commerce Growth Experts"
+        description="Expert Amazon account management, PPC advertising, brand enhancement, and e-commerce growth services across Amazon, Flipkart, Myntra, Ajio & more. 2x ROAS guaranteed."
+        keywords="amazon account management, amazon ppc, e-commerce growth, amazon advertising, flipkart management, myntra seller, brand enhancement, amazon optimization, ppc management, e-commerce services"
+        canonical="/"
+      />
       <section className="hero moon-hero" ref={heroRef}>
         <div className="container">
           <div className="moon-hero-stack">
@@ -266,8 +273,8 @@ const Home = () => {
               <span className="cta-pill">Channel-wise growth plan</span>
               <span className="cta-pill">Actionable next steps</span>
             </div>
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               size="large"
               onClick={() => setIsModalOpen(true)}
               icon={<FaArrowRight />}

@@ -11,6 +11,7 @@ import {
   FaChartLine
 } from 'react-icons/fa'
 import LeadForm from '../../components/LeadForm/LeadForm'
+import SEO from '../../components/SEO/SEO'
 import './Contact.css'
 
 const Contact = () => {
@@ -66,6 +67,12 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title="Contact Us - Get Expert E-commerce Consultation"
+        description="Get in touch with AMZCOZ for expert e-commerce consultation. Free strategy session, growth audit, and personalized roadmap. Serving clients in India, USA, UAE, and UK. Response within 24 hours."
+        keywords="contact amzcoz, e-commerce consultation, amazon help, free strategy session, amazon audit, marketplace consultation, ppc consultation, contact amazon experts"
+        canonical="/contact"
+      />
       {/* Header Section */}
       <section className="contact-header" ref={headerRef}>
         <div className="contact-header-background">

@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer'
 import { FaBuilding, FaChartLine, FaMedal, FaShoppingBag, FaRocket, FaImage, FaTshirt, FaDownload } from 'react-icons/fa'
 import { LuSparkles } from 'react-icons/lu'
 import { PiChartLineUpDuotone } from 'react-icons/pi'
+import SEO from '../../components/SEO/SEO'
 import './Portfolio.css'
 
 const Portfolio = () => {
@@ -201,6 +202,12 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-page">
+      <SEO
+        title="Portfolio - Successful Amazon & E-commerce Projects"
+        description="Explore our portfolio of successful Amazon and e-commerce projects. 15+ brands scaled with 3x ROAS uplift. View our work across Amazon, Flipkart, Myntra & more platforms."
+        keywords="amazon portfolio, e-commerce case studies, amazon success stories, brand scaling, flipkart projects, marketplace growth, ppc results, e-commerce success"
+        canonical="/portfolio"
+      />
       <section className="portfolio-hero">
         <div className="container">
           <motion.div
