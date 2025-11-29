@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa'
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaTwitter, FaFacebook, FaInstagram, FaReddit } from 'react-icons/fa'
 import './Footer.css'
 
 const slugify = (text = '') =>
@@ -40,6 +40,13 @@ const Footer = () => {
       label: 'Facebook',
     },
     { icon: FaInstagram, url: '#', label: 'Instagram' },
+    { 
+      icon: FaReddit, 
+      url: 'https://www.reddit.com/r/AmzCoz', 
+      label: 'Reddit',
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    },
   ]
 
   return (
@@ -69,6 +76,8 @@ const Footer = () => {
                     href={social.url}
                     className="social-link"
                     aria-label={social.label}
+                    target={social.target || ''}
+                    rel={social.rel || ''}
                     whileHover={{ scale: 1.1, y: -3 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -152,9 +161,11 @@ const Footer = () => {
           <div className="footer-bottom-content">
             <p>&copy; {currentYear} AMZCOZ. All rights reserved.</p>
             <div className="footer-legal">
-              <Link to="/privacy" className="legal-link">Privacy Policy</Link>
+              <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/shipping" target="_blank" rel="noopener noreferrer" className="legal-link">Shipping</a>
               <span className="separator">•</span>
-              <Link to="/terms" className="legal-link">Terms of Service</Link>
+              <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/terms" target="_blank" rel="noopener noreferrer" className="legal-link">Terms and Conditions</a>
+              <span className="separator">•</span>
+              <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/refund" target="_blank" rel="noopener noreferrer" className="legal-link">Cancellation & Refunds</a>
             </div>
           </div>
         </div>
