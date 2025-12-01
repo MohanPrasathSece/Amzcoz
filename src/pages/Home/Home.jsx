@@ -47,7 +47,7 @@ const Home = () => {
     {
       icon: FaBullhorn,
       title: 'E-commerce Advertising',
-      description: 'Expert PPC & DSP campaign management across all major platforms with budget optimization and performance tracking.',
+      description: 'Expert advertising and DSP campaign management across all major platforms with budget optimization and performance tracking.',
       features: ['Multi-Platform Ads', 'Budget Optimization', 'Performance Reports', 'ROAS Improvement']
     },
     {
@@ -89,7 +89,7 @@ const Home = () => {
       company: 'Fashion & Apparel',
       image: '👩‍💼',
       rating: 5,
-      text: 'Their expertise in e-commerce advertising across multiple platforms is unmatched. Our PPC campaigns are now profitable and our brand visibility has skyrocketed.'
+      text: 'Their expertise in e-commerce advertising across multiple platforms is unmatched. Our advertising campaigns are now profitable and our brand visibility has skyrocketed.'
     },
     {
       name: 'Michael Chen',
@@ -104,8 +104,8 @@ const Home = () => {
     <div className="home">
       <SEO
         title="AMZCOZ - Amazon Account Management & E-commerce Growth Experts"
-        description="Expert Amazon account management, PPC advertising, brand enhancement, and e-commerce growth services across Amazon, Flipkart, Myntra, Ajio & more. 2x ROAS guaranteed."
-        keywords="amazon account management, amazon ppc, e-commerce growth, amazon advertising, flipkart management, myntra seller, brand enhancement, amazon optimization, ppc management, e-commerce services"
+        description="Expert Amazon account management, advertising, brand enhancement, and e-commerce growth services across Amazon, Flipkart, Myntra, Ajio & more. 2x ROAS guaranteed."
+        keywords="amazon account management, amazon advertising, e-commerce growth, amazon advertising, flipkart management, myntra seller, brand enhancement, amazon optimization, advertising management, e-commerce services"
         canonical="/"
       />
       <section className="hero moon-hero" ref={heroRef}>

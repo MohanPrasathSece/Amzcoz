@@ -24,7 +24,7 @@ const Footer = () => {
 
   const services = [
     { name: 'Amazon Account Management', anchor: 'amazon-account-management' },
-    { name: 'Amazon Advertising (PPC & DSP)', anchor: 'amazon-advertising-ppc-dsp' },
+    { name: 'Amazon Advertising', anchor: 'amazon-advertising-ppc-dsp' },
     { name: 'Brand Store & A+ Content', anchor: slugify('A+ Content & Brand Store') },
     { name: 'Review Management', anchor: slugify('Review & Reputation Management') },
     { name: 'Webapp Development', anchor: slugify('Webapp Development') },
@@ -40,9 +40,9 @@ const Footer = () => {
       label: 'Facebook',
     },
     { icon: FaInstagram, url: '#', label: 'Instagram' },
-    { 
-      icon: FaReddit, 
-      url: 'https://www.reddit.com/r/AmzCoz', 
+    {
+      icon: FaReddit,
+      url: 'https://www.reddit.com/r/AmzCoz',
       label: 'Reddit',
       target: '_blank',
       rel: 'noopener noreferrer'
@@ -66,7 +66,7 @@ const Footer = () => {
                 <span className="logo-highlight">COZ</span>
               </div>
               <p className="footer-description">
-                Expert Amazon account management, advertising, and e-commerce growth services. 
+                Expert Amazon account management, advertising, and e-commerce growth services.
                 Helping brands scale with data-driven strategies.
               </p>
               <div className="social-links">
@@ -161,9 +161,11 @@ const Footer = () => {
           <div className="footer-bottom-content">
             <p>&copy; {currentYear} AMZCOZ. All rights reserved.</p>
             <div className="footer-legal">
-              <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/shipping" target="_blank" rel="noopener noreferrer" className="legal-link">Shipping</a>
+              <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/privacy" target="_blank" rel="noopener noreferrer" className="legal-link">Privacy Policy</a>
               <span className="separator">•</span>
-              <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/terms" target="_blank" rel="noopener noreferrer" className="legal-link">Terms and Conditions</a>
+              <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/terms" target="_blank" rel="noopener noreferrer" className="legal-link">Terms & Conditions</a>
+              <span className="separator">•</span>
+              <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/shipping" target="_blank" rel="noopener noreferrer" className="legal-link">Shipping</a>
               <span className="separator">•</span>
               <a href="https://merchant.razorpay.com/policy/RlUrElctDkASJJ/refund" target="_blank" rel="noopener noreferrer" className="legal-link">Cancellation & Refunds</a>
             </div>

@@ -52,7 +52,7 @@ const Services = () => {
         'Seller Dashboard Notifications',
         'Case Management & Resolution',
         'Sales Target Estimation',
-        'Advertising Support & Coordination (PPC/DSP)'
+        'Advertising Support & Coordination'
       ],
       process: [
         'Initial Account Audit',
@@ -63,7 +63,7 @@ const Services = () => {
     },
     {
       icon: FaBullhorn,
-      title: 'Amazon Advertising (PPC & DSP)',
+      title: 'Amazon Advertising',
       description: 'Data-driven advertising campaigns that maximize ROAS and drive sustainable growth.',
       color: '#4A90E2',
       features: [
@@ -306,9 +306,9 @@ const Services = () => {
   return (
     <div className="services-page">
       <SEO
-        title="Our Services - Amazon Management, PPC & E-commerce Solutions"
-        description="Complete Amazon account management, PPC advertising, brand enhancement, website development & social media marketing. Expert e-commerce solutions for Amazon, Flipkart, Myntra & more."
-        keywords="amazon management services, amazon ppc advertising, e-commerce solutions, brand enhancement, flipkart management, myntra services, social media marketing, website development, amazon dsp, product listing optimization"
+        title="Our Services - Amazon Management, Advertising & E-commerce Solutions"
+        description="Complete Amazon account management, advertising, brand enhancement, website development & social media marketing. Expert e-commerce solutions for Amazon, Flipkart, Myntra & more."
+        keywords="amazon management services, amazon advertising, e-commerce solutions, brand enhancement, flipkart management, myntra services, social media marketing, website development, amazon dsp, product listing optimization"
         canonical="/services"
       />
       {/* Header Section */}

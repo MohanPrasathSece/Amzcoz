@@ -205,7 +205,7 @@ const Portfolio = () => {
       <SEO
         title="Portfolio - Successful Amazon & E-commerce Projects"
         description="Explore our portfolio of successful Amazon and e-commerce projects. 15+ brands scaled with 3x ROAS uplift. View our work across Amazon, Flipkart, Myntra & more platforms."
-        keywords="amazon portfolio, e-commerce case studies, amazon success stories, brand scaling, flipkart projects, marketplace growth, ppc results, e-commerce success"
+        keywords="amazon portfolio, e-commerce case studies, amazon success stories, brand scaling, flipkart projects, marketplace growth, advertising results, e-commerce success"
         canonical="/portfolio"
       />
       <section className="portfolio-hero">

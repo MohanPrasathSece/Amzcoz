@@ -74,7 +74,7 @@ const About = () => {
       <SEO
         title="About AMZCOZ - Your Trusted E-commerce Growth Partner"
         description="Learn about AMZCOZ, your trusted partner for Amazon account management and e-commerce growth. 5+ years of experience, 15+ brands scaled, 98% client satisfaction. Certified Amazon specialists."
-        keywords="about amzcoz, e-commerce experts, amazon specialists, certified amazon agency, marketplace consultants, ppc experts, e-commerce consultants, amazon certified"
+        keywords="about amzcoz, e-commerce experts, amazon specialists, certified amazon agency, marketplace consultants, advertising experts, e-commerce consultants, amazon certified"
         canonical="/about"
       />
       {/* Header Section */}
@@ -300,7 +300,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p>
-              Our team consists of certified Amazon specialists, PPC experts, content creators,
+              Our team consists of certified Amazon specialists, advertising experts, content creators,
               and e-commerce strategists with years of hands-on experience. We stay updated with
               the latest Amazon policies, algorithm changes, and best practices to ensure your
               business stays ahead of the competition.
