@@ -762,6 +762,7 @@
 
 .services-cta {
   text-align: center;
+  margin-top: 2.5rem;
 }
 
 /* Testimonials Section - minimal */
@@ -947,7 +948,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .testimonials-grid {

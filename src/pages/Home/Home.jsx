@@ -15,6 +15,7 @@ import {
   FaFacebook
 } from 'react-icons/fa'
 import Button from '../../components/Button/Button'
+import Brands from '../../components/Brands/Brands'
 import Modal from '../../components/Modal/Modal'
 import LeadForm from '../../components/LeadForm/LeadForm'
 import MoonGalaxy from '../../components/MoonGalaxy/MoonGalaxy'
@@ -176,6 +177,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <Brands />
 
       {/* Testimonials Section */}
       <section className="testimonials-section section-padding bg-light">

@@ -1,0 +1,84 @@
+/* Container */
+.brands-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Moving track */
+.brands-track {
+  display: flex;
+  gap: 4rem;
+  width: max-content;
+  animation: scrollBrands 20s linear infinite;
+}
+
+.brand-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-item::before {
+  content: '';
+  position: absolute;
+  inset: -10px; /* slightly bigger than logo */
+  background: linear-gradient(135deg, #3b82f6, #60a5fa, #2563eb);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  filter: blur(12px);
+}
+
+.brand-item img {
+  position: relative;
+  z-index: 1;
+  height: clamp(60px, 8vw, 100px);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.brand-item:hover::before {
+  opacity: 1;
+}
+
+.brand-item:hover img {
+  transform: scale(1.1);
+ 
+}
+
+/* Animation */
+@keyframes scrollBrands {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brands-marquee:has(.brand-item:hover) .brands-track {
+  animation-play-state: paused;
+}
+
+.brands-marquee::before,
+.brands-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+}
+
+.brands-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #000, transparent);
+}
+
+.brands-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #000, transparent);
+}
