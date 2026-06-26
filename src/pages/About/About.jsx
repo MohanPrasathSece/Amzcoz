@@ -367,7 +367,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* GST Information */}
+      {/* Registration Information */}
       <section className="about-gst-section section-padding" ref={gstRef}>
         <div className="container">
           <motion.div
@@ -376,11 +376,16 @@ const About = () => {
             animate={gstInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2>GST Registration Details</h2>
-            <p className="gst-number">
-              GSTIN: <span>27BRBPT9292A1ZJ</span>
-            </p>
-            <p className="gst-note">Registered under Goods and Services Tax, Government of India.</p>
+            <h2>Registration Details</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '1.5rem' }}>
+              <p className="gst-number" style={{ marginBottom: 0 }}>
+                GSTIN: <span>27BRBPT9292A1ZJ</span>
+              </p>
+              <p className="gst-number" style={{ marginBottom: 0 }}>
+                MSME: <span>UDYAM-MH-26-1024202</span>
+              </p>
+            </div>
+            <p className="gst-note">Registered under Goods and Services Tax & MSME, Government of India.</p>
           </motion.div>
         </div>
       </section>
