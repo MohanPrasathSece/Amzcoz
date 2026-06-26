@@ -102,6 +102,17 @@ const Portfolio = () => {
         },
       ],
     },
+    {
+      id: 'client-4',
+      name: 'Client 4',
+      images: [
+        {
+          id: 'client4-report',
+          src: '/data/new report.png',
+          alt: 'Client 4 business report overview',
+        },
+      ],
+    },
   ]
 
   const results = [
