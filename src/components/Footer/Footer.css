@@ -116,6 +116,7 @@
   color: var(--text-gray);
   font-size: 0.95rem;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .contact-link:hover {
@@ -200,6 +201,8 @@
   .contact-link,
   .contact-text {
     font-size: 0.9rem;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .footer-bottom-content {
