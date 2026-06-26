@@ -49,8 +49,10 @@ const Portfolio = () => {
     { id: 12, name: 'VegOChef', logo: '/images/brands/veg_O_vegan.png' },
     { id: 13, name: 'Zora', logo: '/images/brands/ZORA_Final_Logo.jpg' },
     { id: 14, name: 'Down the Cove', logo: '/images/brands/down_the_cove.jpeg' },
-    { id: 15, name: "Angel's & Co.", logo: '/images/brands/angels_and_co.png' },
-    { id: 16, name: 'Brown Auric', logo: '/images/brands/brown_auric.png' },
+    { id: 15, name: 'Brown Auric', logo: '/images/brands/Brown Auric.jpeg'},
+    { id: 16, name: "Angel's and Co", logo: "/images/brands/Angel's and Co.jpg" },
+    { id: 17, name: 'Nioax', logo: '/images/brands/Nioax Coffee.jpg' },
+    { id: 18, name: 'Hobbyist Nirvana', logo: '/images/brands/Hobbyist Nirvana.jpeg' },
   ]
 
   const clientReportsByBrand = [

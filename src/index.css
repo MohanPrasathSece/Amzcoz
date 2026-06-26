@@ -240,6 +240,30 @@ html {
   padding: 6rem 0;
 }
 
+.section-padding--md {
+  padding: 4rem 0;
+}
+
+.section-padding--sm {
+  padding: 2rem 0;
+}
+
+.section-padding-lg {
+  padding: 6rem 0;
+}
+
+.section-padding-md {
+  padding: 4rem 0;
+}
+
+.section-padding-sm {
+  padding: 2rem 0;
+}
+
+.section-padding-xs {
+  padding: 1rem 0;
+}
+
 @media (max-width: 768px) {
   .section-padding {
     padding: 4rem 0;
