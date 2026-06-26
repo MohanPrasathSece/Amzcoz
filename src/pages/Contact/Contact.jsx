@@ -28,7 +28,7 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       title: 'Email',
-      details: ['adnan@amzcoz.com'],
+      details: ['adnan@amzcoz.com / adnanamzcoz@gmail.com'],
       link: 'mailto:adnan@amzcoz.com'
     },
     {
