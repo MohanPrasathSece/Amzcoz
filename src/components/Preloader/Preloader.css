@@ -54,3 +54,10 @@
   color: #fff;
   transform: scale(1.04);
 }
+
+@media (max-width: 768px) {
+  .preloader-watermark-cover {
+    width: 180px;
+    height: 60px;
+  }
+}
