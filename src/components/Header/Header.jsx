@@ -62,8 +62,8 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="logo-text">AMZ</span>
-                <span className="logo-highlight">COZ</span>
+                <span className="logo-text">Amz</span>
+                <span className="logo-highlight">Coz</span>
               </motion.div>
             </Link>
 
