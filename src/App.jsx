@@ -14,8 +14,11 @@ import { ThemeProvider } from './contexts/ThemeContext'
 import './App.css'
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton'
 
+import Preloader from './components/Preloader/Preloader'
+
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [initialLoading, setInitialLoading] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +33,7 @@ function App() {
     <HelmetProvider>
       <ThemeProvider>
         <Router>
+          <Preloader onLoadingComplete={() => setInitialLoading(false)} />
           <div className="App">
             <Header />
             <main>
